@@ -17,7 +17,7 @@ Iterate the above for changes you make.
 At the end of the day/session, push your work to git:
 ```bash
 git pull
-git push
+git push -u origin "branch-name"
 ```
 
 When you are done with the issue create a pull-request here at Github to close the branch
