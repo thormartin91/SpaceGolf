@@ -20,4 +20,7 @@ git pull
 git push -u origin "branch-name"
 ```
 
-When you are done with the issue create a pull-request here at Github to close the branch
+When you are done with the issue create a pull-request here at Github to close the branch.
+
+To close a branch:
+Go to pull-requests -> merge pull-request -> delete branch
