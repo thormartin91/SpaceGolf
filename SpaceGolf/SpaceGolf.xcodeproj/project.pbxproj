@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02008EB51AA5F95A0088AFA8 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 02008EB41AA5F95A0088AFA8 /* ball.png */; };
 		397204711AA5E25A0066F78F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397204701AA5E25A0066F78F /* AppDelegate.swift */; };
-		397204731AA5E25A0066F78F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 397204721AA5E25A0066F78F /* GameScene.sks */; };
 		397204751AA5E25A0066F78F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397204741AA5E25A0066F78F /* GameScene.swift */; };
 		397204771AA5E25A0066F78F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397204761AA5E25A0066F78F /* GameViewController.swift */; };
 		3972047A1AA5E25A0066F78F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397204781AA5E25A0066F78F /* Main.storyboard */; };
@@ -28,10 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02008EB41AA5F95A0088AFA8 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		3972046B1AA5E25A0066F78F /* SpaceGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3972046F1AA5E25A0066F78F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		397204701AA5E25A0066F78F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		397204721AA5E25A0066F78F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		397204741AA5E25A0066F78F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		397204761AA5E25A0066F78F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		397204791AA5E25A0066F78F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,11 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				397204701AA5E25A0066F78F /* AppDelegate.swift */,
-				397204721AA5E25A0066F78F /* GameScene.sks */,
 				397204741AA5E25A0066F78F /* GameScene.swift */,
 				397204761AA5E25A0066F78F /* GameViewController.swift */,
 				397204781AA5E25A0066F78F /* Main.storyboard */,
 				3972047B1AA5E25A0066F78F /* Images.xcassets */,
+				02008EB41AA5F95A0088AFA8 /* ball.png */,
 				3972047D1AA5E25A0066F78F /* LaunchScreen.xib */,
 				3972046E1AA5E25A0066F78F /* Supporting Files */,
 			);
@@ -199,8 +199,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3972047F1AA5E25A0066F78F /* LaunchScreen.xib in Resources */,
+				02008EB51AA5F95A0088AFA8 /* ball.png in Resources */,
 				3972047C1AA5E25A0066F78F /* Images.xcassets in Resources */,
-				397204731AA5E25A0066F78F /* GameScene.sks in Resources */,
 				3972047A1AA5E25A0066F78F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +413,7 @@
 				397204901AA5E25A0066F78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		397204911AA5E25A0066F78F /* Build configuration list for PBXNativeTarget "SpaceGolfTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +422,7 @@
 				397204931AA5E25A0066F78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
