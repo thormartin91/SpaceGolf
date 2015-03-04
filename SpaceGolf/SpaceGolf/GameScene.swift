@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import UIKit
 
 class GameScene: SKScene {
     
@@ -23,13 +24,11 @@ class GameScene: SKScene {
         self.physicsWorld.gravity = CGVectorMake(0, 0)
         
         
-        let ball = SKSpriteNode(imageNamed:"ball.png")
         let location = CGPoint(x: self.frame.height / 2 , y: self.frame.width/2)
         
         ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2)
         ball.physicsBody?.dynamic = true
-        ball.physicsBody?.velocity = CGVectorMake(0, 0)
-        ball.physicsBody?.applyForce(CGVectorMake(0, 280))
+        //ball.physicsBody?.friction = 1
         
         ball.position = location
         ball.setScale(0.1)
@@ -37,7 +36,7 @@ class GameScene: SKScene {
         self.addChild(ball)
         
     }
-    
+
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
@@ -57,7 +56,8 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        var shootVector = CGVectorMake(endPoint.x - startPoint.x, endPoint.y - startPoint.y)
+        var force = CGFloat(-9.8)
+        var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
         println("Vector: \(shootVector.dx),\(shootVector.dy)")
         
