@@ -15,6 +15,7 @@
 		3972047C1AA5E25A0066F78F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3972047B1AA5E25A0066F78F /* Images.xcassets */; };
 		3972047F1AA5E25A0066F78F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3972047D1AA5E25A0066F78F /* LaunchScreen.xib */; };
 		3972048B1AA5E25A0066F78F /* SpaceGolfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972048A1AA5E25A0066F78F /* SpaceGolfTests.swift */; };
+		F67EFC7E1AA7710000C6EFBB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67EFC7D1AA7710000C6EFBB /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		397204841AA5E25A0066F78F /* SpaceGolfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceGolfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		397204891AA5E25A0066F78F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3972048A1AA5E25A0066F78F /* SpaceGolfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGolfTests.swift; sourceTree = "<group>"; };
+		F67EFC7D1AA7710000C6EFBB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				397204701AA5E25A0066F78F /* AppDelegate.swift */,
 				397204721AA5E25A0066F78F /* GameScene.sks */,
+				F67EFC7D1AA7710000C6EFBB /* MenuViewController.swift */,
 				397204741AA5E25A0066F78F /* GameScene.swift */,
 				397204761AA5E25A0066F78F /* GameViewController.swift */,
 				397204781AA5E25A0066F78F /* Main.storyboard */,
@@ -222,6 +225,7 @@
 				397204751AA5E25A0066F78F /* GameScene.swift in Sources */,
 				397204771AA5E25A0066F78F /* GameViewController.swift in Sources */,
 				397204711AA5E25A0066F78F /* AppDelegate.swift in Sources */,
+				F67EFC7E1AA7710000C6EFBB /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +417,7 @@
 				397204901AA5E25A0066F78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		397204911AA5E25A0066F78F /* Build configuration list for PBXNativeTarget "SpaceGolfTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				397204931AA5E25A0066F78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
