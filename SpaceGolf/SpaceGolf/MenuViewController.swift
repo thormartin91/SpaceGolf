@@ -6,4 +6,19 @@
 //  Copyright (c) 2015 Progark. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MenuViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do additional setup after loading the view
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+}
