@@ -28,5 +28,13 @@ class Player: GKLocalPlayer {
         hits++
     }
     
+    func getScore() -> Double {
+        return self.score
+    }
+    
+    func getHits() -> Int {
+        return self.hits
+    }
+    
     
 }
