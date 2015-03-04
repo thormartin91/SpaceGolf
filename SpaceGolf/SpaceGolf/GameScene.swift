@@ -9,33 +9,51 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    
+    
+    let planet = Planet(radius: 50, density: 0.3)
+    
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+        planet.position = CGPointMake(self.size.width/2, self.size.height/2)
+        planet.state = PlanetState.Hole
+        self.addChild(planet)
         
-        self.addChild(myLabel)
+        self.physicsWorld.gravity = CGVectorMake(0, 0)
+        
+        
+        let planet2 : Planet = Planet(radius: 50, density: 0.3)
+        planet2.position = CGPointMake(self.size.width/2+150, self.size.height/2-150)
+        self.addChild(planet2)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
+//        for touch: AnyObject in touches {
+//            let location = touch.locationInNode(self)
+//            
+//            let sprite = SKSpriteNode(color: UIColor.redColor(), size: CGSizeMake(30, 30))
+//            sprite.physicsBody = SKPhysicsBody(circleOfRadius: 15)
+//            sprite.physicsBody?.fieldBitMask = PhysicsFieldCategory.PlanetGravitation
+//            sprite.position = location
+//            sprite.physicsBody?.angularDamping = 5
+//            
+//            self.addChild(sprite)
+//            
+//            sprite.physicsBody?.applyImpulse(CGVectorMake(4, 0))
+//        }
+    }
+    
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+
+            let ball = Ball(color: UIColor.grayColor(), size: CGSizeMake(20, 20))
+            ball.position = location
+//            self.addChild(ball)
+            println(self.planet.isInTheHole(ball))
         }
     }
    
