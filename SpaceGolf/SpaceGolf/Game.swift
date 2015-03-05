@@ -15,7 +15,7 @@ class Player{
 
 
 class Game {
-    private var players : [Player] = []
+    var players : [Player] = []
     private var currentPlayer : Int = 0
     
     func addPlayer(player: Player) {
