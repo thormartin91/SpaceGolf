@@ -15,6 +15,8 @@
 		3972047C1AA5E25A0066F78F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3972047B1AA5E25A0066F78F /* Images.xcassets */; };
 		3972047F1AA5E25A0066F78F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3972047D1AA5E25A0066F78F /* LaunchScreen.xib */; };
 		3972048B1AA5E25A0066F78F /* SpaceGolfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972048A1AA5E25A0066F78F /* SpaceGolfTests.swift */; };
+		DD5EA4791AA75BBD000005C7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA4781AA75BBD000005C7 /* Player.swift */; };
+		DD5EA47B1AA7730F000005C7 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA47A1AA7730F000005C7 /* Leaderboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		397204841AA5E25A0066F78F /* SpaceGolfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceGolfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		397204891AA5E25A0066F78F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3972048A1AA5E25A0066F78F /* SpaceGolfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGolfTests.swift; sourceTree = "<group>"; };
+		DD5EA4781AA75BBD000005C7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DD5EA47A1AA7730F000005C7 /* Leaderboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				397204701AA5E25A0066F78F /* AppDelegate.swift */,
+				DD5EA4781AA75BBD000005C7 /* Player.swift */,
+				DD5EA47A1AA7730F000005C7 /* Leaderboard.swift */,
 				397204721AA5E25A0066F78F /* GameScene.sks */,
 				397204741AA5E25A0066F78F /* GameScene.swift */,
 				397204761AA5E25A0066F78F /* GameViewController.swift */,
@@ -219,9 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD5EA4791AA75BBD000005C7 /* Player.swift in Sources */,
 				397204751AA5E25A0066F78F /* GameScene.swift in Sources */,
 				397204771AA5E25A0066F78F /* GameViewController.swift in Sources */,
 				397204711AA5E25A0066F78F /* AppDelegate.swift in Sources */,
+				DD5EA47B1AA7730F000005C7 /* Leaderboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +421,7 @@
 				397204901AA5E25A0066F78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		397204911AA5E25A0066F78F /* Build configuration list for PBXNativeTarget "SpaceGolfTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +430,7 @@
 				397204931AA5E25A0066F78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
