@@ -46,28 +46,35 @@ class GameScene: SKScene {
         for touch: AnyObject in touches {
             
             startPoint = touch.locationInNode(self)
-            endPoint = touch.locationInNode(self)
             println("Start: \(startPoint)")
             
-
-            CGPathMoveToPoint(pathToDraw, nil, startPoint.x, startPoint.y)
+            if(pathToDraw == nil){
+                pathToDraw = CGPathCreateMutable()
+                CGPathMoveToPoint(pathToDraw, nil, startPoint.x, startPoint.y)
+            }else{
+                CGPathMoveToPoint(pathToDraw, nil, startPoint.x, startPoint.y)
+            }
             //line.path = pathToDraw
         }
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
-            line.removeFromParent()
             endPoint = touch.locationInNode(self)
             println("End: \(endPoint)")
-            
-            CGPathAddLineToPoint(pathToDraw, nil, endPoint.x, endPoint.y)
+
+            line.removeFromParent()
             line.path = pathToDraw
+            CGPathAddLineToPoint(pathToDraw, nil, endPoint.x, endPoint.y)
             self.addChild(line)
+
+
         }
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        pathToDraw = nil
+        line.removeFromParent()
         var force = CGFloat(-9.8)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
