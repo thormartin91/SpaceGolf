@@ -15,8 +15,7 @@ class GameScene: SKScene {
     var endPoint = CGPoint()
     let ball = SKSpriteNode(imageNamed:"ball.png")
     
-    let line = SKShapeNode();
-    var pathToDraw = CGPathCreateMutable()
+    var line = SKShapeNode();
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -42,28 +41,22 @@ class GameScene: SKScene {
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
-
+        
+        self.addChild(line)
         for touch: AnyObject in touches {
-            
             startPoint = touch.locationInNode(self)
-            endPoint = touch.locationInNode(self)
-            println("Start: \(startPoint)")
-            
-
-            CGPathMoveToPoint(pathToDraw, nil, startPoint.x, startPoint.y)
-            //line.path = pathToDraw
         }
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
-            line.removeFromParent()
             endPoint = touch.locationInNode(self)
-            println("End: \(endPoint)")
             
-            CGPathAddLineToPoint(pathToDraw, nil, endPoint.x, endPoint.y)
+            let pathToDraw = CGPathCreateMutable()
+            CGPathMoveToPoint(pathToDraw, nil, startPoint.x, startPoint.y)
+            CGPathAddLineToPoint(pathToDraw, nil, startPoint.x + (startPoint.x-endPoint.x), startPoint.y + (startPoint.y-endPoint.y))
+            
             line.path = pathToDraw
-            self.addChild(line)
         }
     }
     
@@ -71,8 +64,8 @@ class GameScene: SKScene {
         var force = CGFloat(-9.8)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
-        println("Vector: \(shootVector.dx),\(shootVector.dy)")
         ball.physicsBody?.applyImpulse(shootVector)
+        line.removeFromParent()
     }
     
    
