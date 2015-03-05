@@ -61,8 +61,6 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-
-        line.removeFromParent()
         var force = CGFloat(-9.8)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
