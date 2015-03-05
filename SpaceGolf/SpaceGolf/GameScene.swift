@@ -15,6 +15,9 @@ class GameScene: SKScene {
     var endPoint = CGPoint()
     let ball = SKSpriteNode(imageNamed:"ball.png")
     
+    let line = SKShapeNode();
+    var pathToDraw = CGPathCreateMutable()
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
@@ -39,19 +42,28 @@ class GameScene: SKScene {
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
-        
+
         for touch: AnyObject in touches {
             
             startPoint = touch.locationInNode(self)
+            endPoint = touch.locationInNode(self)
             println("Start: \(startPoint)")
             
+
+            CGPathMoveToPoint(pathToDraw, nil, startPoint.x, startPoint.y)
+            //line.path = pathToDraw
         }
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
-                endPoint = touch.locationInNode(self)
-                println("End: \(endPoint)")
+            line.removeFromParent()
+            endPoint = touch.locationInNode(self)
+            println("End: \(endPoint)")
+            
+            CGPathAddLineToPoint(pathToDraw, nil, endPoint.x, endPoint.y)
+            line.path = pathToDraw
+            self.addChild(line)
         }
     }
     
@@ -60,7 +72,6 @@ class GameScene: SKScene {
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
         println("Vector: \(shootVector.dx),\(shootVector.dy)")
-        
         ball.physicsBody?.applyImpulse(shootVector)
     }
     
