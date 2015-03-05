@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		393A92111AA86A950068FF32 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A92101AA86A950068FF32 /* Game.swift */; };
 		397204711AA5E25A0066F78F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397204701AA5E25A0066F78F /* AppDelegate.swift */; };
 		397204731AA5E25A0066F78F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 397204721AA5E25A0066F78F /* GameScene.sks */; };
 		397204751AA5E25A0066F78F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397204741AA5E25A0066F78F /* GameScene.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		393A92101AA86A950068FF32 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3972046B1AA5E25A0066F78F /* SpaceGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3972046F1AA5E25A0066F78F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		397204701AA5E25A0066F78F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				3972047B1AA5E25A0066F78F /* Images.xcassets */,
 				3972047D1AA5E25A0066F78F /* LaunchScreen.xib */,
 				3972046E1AA5E25A0066F78F /* Supporting Files */,
+				393A92101AA86A950068FF32 /* Game.swift */,
 			);
 			path = SpaceGolf;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				397204751AA5E25A0066F78F /* GameScene.swift in Sources */,
 				397204771AA5E25A0066F78F /* GameViewController.swift in Sources */,
 				397204711AA5E25A0066F78F /* AppDelegate.swift in Sources */,
+				393A92111AA86A950068FF32 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +417,7 @@
 				397204901AA5E25A0066F78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		397204911AA5E25A0066F78F /* Build configuration list for PBXNativeTarget "SpaceGolfTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				397204931AA5E25A0066F78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
