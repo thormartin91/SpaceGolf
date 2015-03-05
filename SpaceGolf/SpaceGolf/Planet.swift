@@ -14,23 +14,14 @@ struct PhysicsFieldCategory {
     static let PlanetGravitation : UInt32    = 0x1 << 1
 }
 
-
 enum PlanetState {
     case Hole
     case Normal
 }
 
-protocol GoalPlanetDelegate {
-    func ballDidHitGoal(ball: Ball, onPlanet planet:Planet)
-}
-
 class Planet: SKSpriteNode {
 
-    var state : PlanetState = .Normal {
-        didSet {
-//            Noe
-        }
-    }
+    var state : PlanetState = .Normal
     
     var radius : Float {
         return Float(self.size.height) / 2.0
@@ -41,25 +32,27 @@ class Planet: SKSpriteNode {
     
     let gravityField : SKFieldNode = SKFieldNode.radialGravityField()
     
-    init(radius: Float, density: Float) {
+    init(texture: SKTexture, radius: CGFloat, fieldStrength: Float) {
+
+        super.init(texture: texture, color: UIColor.redColor(), size: CGSizeMake(radius*2, radius*2))
         
-//        TODO: Randomize planet texture?
-        super.init(texture: SKTexture(imageNamed: "RedPlanet"), color: UIColor.redColor(), size: CGSizeMake(CGFloat(radius*2), CGFloat(radius*2)))
-        
-        self.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(radius))
+        self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.dynamic = false
         
-//        Add gravitational pull
-//        Field strength = volume * density
-        self.gravityField.strength = powf(radius, 2) * Float(M_1_PI) * density * 0.01
-        self.gravityField.categoryBitMask = PhysicsFieldCategory.PlanetGravitation
-
+        self.configureGravityFieldWitStrength(fieldStrength)
         self.addChild(self.gravityField)
+    }
+    
+    func configureGravityFieldWitStrength(strength: Float) {
+        self.gravityField.strength = strength
+        self.gravityField.falloff = 2
+        self.gravityField.categoryBitMask = PhysicsFieldCategory.PlanetGravitation
     }
  
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     func isInTheHole(ball: Ball) -> Bool {
         if self.state != .Hole {
