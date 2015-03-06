@@ -22,12 +22,19 @@ class Leaderboard {
             leaderList.append(player)
         }
         else {
-            if (player.score > lowestScoreOnLeaderboard().score) {
-                
+            if (player.score > lastPlayerOnLeaderboard().score) {
+                leaderList.removeAtIndex(4)
+                leaderList.append(player)
+                //leaderList.sort();
             }
             
         }
+        return  true
     }
+    
+    /*Finds the last player on the leaderboard.
+     *May be optimized if leaderboard are sorted.
+     */
     
     func lastPlayerOnLeaderboard() -> Player {
         var lowestScore: Player = leaderList[0]
