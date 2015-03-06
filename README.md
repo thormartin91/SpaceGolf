@@ -38,11 +38,13 @@ Fix any mergeconflicts, switch to master and merge it with your branch:
 git checkout master
 git merge --no-ff <branch-name>
 ```
-
-Delete your branch and push to master:
+Push master to git:
+```bash
+git push origin master
+```
+Delete your branch:
 ```bash
 git branch -d <branch-name>
-git push origin master
 ```
 
 ALL DONE!
