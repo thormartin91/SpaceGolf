@@ -27,9 +27,10 @@ class GameScene: SKScene {
         
 //        Add planets
         
-        for i in 0...2 {
+        let positions : [(CGFloat, CGFloat)] = [(100,200), (400,100), (500,300)]
+        for pos in positions {
             let planet = Planet(texture: SKTexture(imageNamed: "RedPlanet"), radius: 50, fieldStrength: 2)
-            planet.position = CGPointMake(CGFloat(arc4random_uniform(UInt32(self.size.width))), CGFloat(arc4random_uniform(UInt32(self.size.height))))
+            planet.position = CGPointMake(pos.0, pos.1)
             self.planets.append(planet)
             self.addChild(planet)
         }
