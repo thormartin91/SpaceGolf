@@ -10,14 +10,16 @@ import Foundation
 import GameKit
 
 class Player: GKLocalPlayer {
-    private var score: Double
+    let id: Int
+    var score: Double
     private var hits: Int
-    private var ball: Ball
+    var ball: Ball
     
-    override init(){
+    init(id: Int){
         score = 0
         hits = 0
         ball = Ball()
+        self.id = id;
     }
     
     func changeScore(deltaScore: Double){
@@ -26,10 +28,6 @@ class Player: GKLocalPlayer {
     
     func addHit(){
         hits++
-    }
-    
-    func getScore() -> Double {
-        return self.score
     }
     
     func getHits() -> Int {
