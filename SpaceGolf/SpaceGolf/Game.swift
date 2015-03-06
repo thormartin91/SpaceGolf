@@ -11,8 +11,20 @@ import Foundation
 
 class Game {
     var players : [Player] = []
-    private var currentPlayer : Int = 0
     private var idCounter : Int = 0
+    private var playersDone : [Player] = []
+    
+    private var currentPlayer : Int = 0 {
+        didSet {
+            self.currentPlayer = currentPlayer % self.players.count
+        }
+    }
+    private var firstPlayer : Int = 0 {
+        didSet {
+            self.firstPlayer = firstPlayer % self.players.count
+        }
+    }
+    
     
     func addPlayer(name: String) {
         var player = Player(id: idCounter, playerName: name)
@@ -25,7 +37,8 @@ class Game {
     }
     
     func newRound() {
-        self.currentPlayer = 0
+        self.currentPlayer = firstPlayer++
+        self.playersDone = []
     }
     
     func nextPlayer() -> Player? {
@@ -39,4 +52,15 @@ class Game {
     func currentStandings() -> [Player] {
         return sorted(self.players) {$0.score > $1.score}
     }
+    
+    func roundIsDone() -> Bool {
+        return self.players.count == self.playersDone.count
+    }
+    
+    func playerIsDone(player: Player) {
+        self.removePlayer(player)
+        self.playersDone.append(player)
+    }
+    
+    
 }
