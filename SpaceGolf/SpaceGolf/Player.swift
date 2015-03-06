@@ -8,6 +8,8 @@
 
 import Foundation
 import GameKit
+import SpriteKit
+
 
 class Player: GKLocalPlayer {
     let id: Int
