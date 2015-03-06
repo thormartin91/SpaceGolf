@@ -10,7 +10,6 @@ import SpriteKit
 import UIKit
 
 class GameScene: SKScene {
-    
     var startPoint = CGPoint()
     var endPoint = CGPoint()
     let ball = SKSpriteNode(imageNamed:"ball.png")
@@ -36,7 +35,7 @@ class GameScene: SKScene {
         ball.setScale(0.1)
         
         self.addChild(ball)
-        
+
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
