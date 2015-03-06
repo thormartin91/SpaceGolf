@@ -13,6 +13,7 @@ class GameScene: SKScene {
     var startPoint = CGPoint()
     var endPoint = CGPoint()
     let ball = SKSpriteNode(imageNamed:"ball.png")
+    var planets : [Planet] = []
     
     var line = SKShapeNode();
     
@@ -21,16 +22,23 @@ class GameScene: SKScene {
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
 
         
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
+//        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
         self.physicsWorld.gravity = CGVectorMake(0, 0)
         
+//        Add planets
         
+        for i in 0...2 {
+            let planet = Planet(texture: SKTexture(imageNamed: "RedPlanet"), radius: 50, fieldStrength: 2)
+            planet.position = CGPointMake(CGFloat(arc4random_uniform(UInt32(self.size.width))), CGFloat(arc4random_uniform(UInt32(self.size.height))))
+            self.planets.append(planet)
+            self.addChild(planet)
+        }
+        
+        
+//        Add ball
         let location = CGPoint(x: self.frame.height / 2 , y: self.frame.width/2)
-        
         ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2)
         ball.physicsBody?.dynamic = true
-        //ball.physicsBody?.friction = 1
-        
         ball.position = location
         ball.setScale(0.1)
         

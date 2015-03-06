@@ -43,7 +43,7 @@ class Planet: SKSpriteNode {
     
     func configureGravityFieldWitStrength(strength: Float) {
         self.gravityField.strength = strength
-        self.gravityField.falloff = 2
+//        self.gravityField.falloff = 2
         self.gravityField.categoryBitMask = PhysicsFieldCategory.PlanetGravitation
     }
  
