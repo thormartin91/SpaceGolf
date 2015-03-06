@@ -20,11 +20,13 @@ Iterate the above for changes you make.
 
 Before you end a session, push your work to git:
 ```bash
-git push -u origin <branch-name> 
+git push origin <branch-name> 
 ```
+> Use _git push **-u** origin \<branch-name\>_ to set upstream to your branch. i.e. next time use just _git push_
+
 #### Close branch
 
-> When you are ready to merge your branch to the master you could issue a Pullrequest on Github to let others review your code.
+> When you are ready to merge your branch to the master you could issue a Pullrequest on Github to let others review your code. You can manage the merge from Github, and delete the branch locally when you are done.
 
 When you are done with the branch.
 First merge the master into your branch to check for mergconflicts:
