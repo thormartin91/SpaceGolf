@@ -9,6 +9,41 @@
 import Foundation
 
 class Leaderboard {
-    var leaderList = [Player]()
+    private var leaderList = [Player]()
+    
+    
+    
+    func addPlayerToLeaderboard(player: Player) {
+        
+    }
+    
+    func playerOnHighScoreList(player: Player) -> Bool {
+        if (leaderList.count <= 5) {
+            leaderList.append(player)
+        }
+        else {
+            if (player.score > lastPlayerOnLeaderboard().score) {
+                leaderList.removeAtIndex(4)
+                leaderList.append(player)
+                //leaderList.sort();
+            }
+            
+        }
+        return  true
+    }
+    
+    /*Finds the last player on the leaderboard.
+     *May be optimized if leaderboard are sorted.
+     */
+    
+    func lastPlayerOnLeaderboard() -> Player {
+        var lowestScore: Player = leaderList[0]
+        for player in leaderList {
+            if (player.score < lowestScore.score) {
+                lowestScore = player
+            }
+        }
+        return lowestScore;
+    }
     
 }

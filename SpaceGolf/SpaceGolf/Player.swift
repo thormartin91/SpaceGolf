@@ -11,6 +11,12 @@ import GameKit
 import SpriteKit
 
 
+class Ball {
+    init(){
+        
+    }
+}
+
 class Player: GKLocalPlayer {
     let id: Int
     var score: Double
