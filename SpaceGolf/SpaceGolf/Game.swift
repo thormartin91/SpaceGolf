@@ -55,8 +55,20 @@ class Game {
     }
     
     func playerIsDone(player: Player) {
-        self.removePlayer(player)
-        self.playersDone.append(player)
+        if !contains(self.playersDone, player) {
+            self.removePlayer(player)
+            self.playersDone.append(player)
+        }
+    }
+    
+    func playerForBall(ball: Ball)-> Player? {
+        for player in self.players {
+            if player.ball == ball {
+                return player
+            }
+        }
+        
+        return nil
     }
     
     

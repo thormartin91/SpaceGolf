@@ -26,7 +26,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var line = SKShapeNode();
     
-    var game : Game?
+    var game : Game? {
+        didSet {
+//            for player in self.game!.players {
+//                self.addChild(player.ball)
+//            }
+        }
+    }
     var currentPlayer : Player?
     
     override func didMoveToView(view: SKView) {
@@ -34,11 +40,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.gravity = CGVectorMake(0, 0)
         
+        
+        
 //        TODO: Should be a partog AddPlayerVC
         self.game = Game()
         self.game?.players = [Player(id: 0), Player(id: 1)]
         self.physicsWorld.contactDelegate = self
 
+        
+        for player in self.game!.players {
+            self.addChild(player.ball)
+        }
         
         self.newRound()
     }
@@ -52,7 +64,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         for player in self.game!.players {
             player.ball.position = CGPoint(x: 100, y: 100)
-            self.addChild(player.ball)
         }
         
         self.nextPlayer()
@@ -74,6 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             planet.position = CGPointMake(pos.0, pos.1)
             self.planets.append(planet)
             self.addChild(planet)
+            planet.state = .Hole
         }
     }
 
@@ -118,13 +130,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (ball != nil ||
             planet != nil){
                 
-            planet!.isInTheHole(ball!)
+                if planet!.isInTheHole(ball!) {
+                    self.game?.playerIsDone(self.game!.playerForBall(ball!)!)
+                    ball!.physicsBody?.dynamic = false
+                    println("ball in hole")
+                    if self.game!.roundIsDone() {
+                        self.newRound()
+                    }
+                }
         }
     }
     
     
     func ballDidHitPlanet(contact: SKPhysicsContact) -> (Ball?, Planet?){
-    
         if (contact.bodyA.categoryBitMask == PhysicsCategory.Ball &&
             contact.bodyB.categoryBitMask == PhysicsCategory.Planet){
         
