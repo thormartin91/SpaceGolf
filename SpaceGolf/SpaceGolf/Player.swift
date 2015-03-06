@@ -10,7 +10,6 @@ import Foundation
 import GameKit
 import SpriteKit
 
-class Ball: SKSpriteNode {}
 
 class Player: GKLocalPlayer {
     let id: Int
