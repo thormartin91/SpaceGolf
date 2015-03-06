@@ -8,8 +8,6 @@
 
 import SpriteKit
 
-class Ball : SKSpriteNode {}
-
 struct PhysicsFieldCategory {
     static let PlanetGravitation : UInt32    = 0x1 << 1
 }

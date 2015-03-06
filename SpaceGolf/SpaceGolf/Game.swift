@@ -8,11 +8,6 @@
 
 import Foundation
 
-class Player{
-    var id = 0
-    var score : Float = 0
-}
-
 
 class Game {
     var players : [Player] = []
