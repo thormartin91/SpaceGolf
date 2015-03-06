@@ -2,25 +2,51 @@
 TDT4240 - ProgArk - 2015
 
 ## Workflow
+#### Create branch
 First off, create a new branch:
 ```bash
 git pull
-git checkout -b "iss(issue-id-number)"
+git checkout -b <branch-name> master
 ```
-Next, write your code and:
+> Branch-name should be with the convention iss(issue-id-number)
+
+Next, write your code, stage the files and commit:
 ```bash
-git add -A
+git status
+git add <some-file>
 git commit -m "commit message"
 ```
 Iterate the above for changes you make.
 
-At the end of the day/session, push your work to git:
+Before you end a session, push your work to git:
 ```bash
-git pull
-git push -u origin "branch-name"
+git push origin <branch-name> 
+```
+> Use _git push **-u** origin \<branch-name\>_ to set upstream to your branch. i.e. next time use just _git push_
+
+#### Close branch
+
+> When you are ready to merge your branch to the master you could issue a Pullrequest on Github to let others review your code. You can manage the merge from Github, and delete the branch locally when you are done.
+
+When you are done with the branch.
+First merge the master into your branch to check for mergconflicts:
+```bash
+git fetch origin
+git checkout <branch-name>
+git merge master
+```
+Fix any mergeconflicts, switch to master and merge it with your branch:
+```bash
+git checkout master
+git merge --no-ff <branch-name>
+```
+Push master to git:
+```bash
+git push origin master
+```
+Delete your branch:
+```bash
+git branch -d <branch-name>
 ```
 
-When you are done with the issue create a pull-request here at Github to close the branch.
-
-To close a branch:
-Go to pull-requests -> merge pull-request -> delete branch
+ALL DONE!
