@@ -17,13 +17,14 @@
 		3972047C1AA5E25A0066F78F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3972047B1AA5E25A0066F78F /* Images.xcassets */; };
 		3972047F1AA5E25A0066F78F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3972047D1AA5E25A0066F78F /* LaunchScreen.xib */; };
 		3972048B1AA5E25A0066F78F /* SpaceGolfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972048A1AA5E25A0066F78F /* SpaceGolfTests.swift */; };
-		F67EFC7E1AA7710000C6EFBB /* GameMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67EFC7D1AA7710000C6EFBB /* GameMenuViewController.swift */; };
-		F682E54E1AA9F2EE006E14F1 /* AddPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F682E54D1AA9F2EE006E14F1 /* AddPlayersViewController.swift */; };
 		39D9A8E61AA62B7900F32B07 /* RedPlanet.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D9A8E51AA62B7900F32B07 /* RedPlanet.png */; };
 		39F14E901AA9D68500CE81B0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F14E8F1AA9D68500CE81B0 /* GameScene.swift */; };
 		48C5315C1AA9EA8B00B12398 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C5315B1AA9EA8B00B12398 /* Ball.swift */; };
 		DD5EA4791AA75BBD000005C7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA4781AA75BBD000005C7 /* Player.swift */; };
 		DD5EA47B1AA7730F000005C7 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA47A1AA7730F000005C7 /* Leaderboard.swift */; };
+		F67EFC7E1AA7710000C6EFBB /* GameMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67EFC7D1AA7710000C6EFBB /* GameMenuViewController.swift */; };
+		F682E54E1AA9F2EE006E14F1 /* AddPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F682E54D1AA9F2EE006E14F1 /* AddPlayersViewController.swift */; };
+		F6EA24CA1AAA084400A22BE2 /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA24C91AAA084400A22BE2 /* GameSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,13 +52,14 @@
 		397204841AA5E25A0066F78F /* SpaceGolfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceGolfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		397204891AA5E25A0066F78F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3972048A1AA5E25A0066F78F /* SpaceGolfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGolfTests.swift; sourceTree = "<group>"; };
-		F67EFC7D1AA7710000C6EFBB /* GameMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMenuViewController.swift; sourceTree = "<group>"; };
-		F682E54D1AA9F2EE006E14F1 /* AddPlayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayersViewController.swift; sourceTree = "<group>"; };
 		39D9A8E51AA62B7900F32B07 /* RedPlanet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedPlanet.png; sourceTree = "<group>"; };
 		39F14E8F1AA9D68500CE81B0 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		48C5315B1AA9EA8B00B12398 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		DD5EA4781AA75BBD000005C7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		DD5EA47A1AA7730F000005C7 /* Leaderboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		F67EFC7D1AA7710000C6EFBB /* GameMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMenuViewController.swift; sourceTree = "<group>"; };
+		F682E54D1AA9F2EE006E14F1 /* AddPlayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayersViewController.swift; sourceTree = "<group>"; };
+		F6EA24C91AAA084400A22BE2 /* GameSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,13 +104,12 @@
 				39F14E8F1AA9D68500CE81B0 /* GameScene.swift */,
 				39D9A8E31AA62B7900F32B07 /* Resources */,
 				397204701AA5E25A0066F78F /* AppDelegate.swift */,
-				397204721AA5E25A0066F78F /* GameScene.sks */,
 				F67EFC7D1AA7710000C6EFBB /* GameMenuViewController.swift */,
-				397204741AA5E25A0066F78F /* GameScene.swift */,
 				397204761AA5E25A0066F78F /* GameViewController.swift */,
 				F682E54D1AA9F2EE006E14F1 /* AddPlayersViewController.swift */,
 				DD5EA4781AA75BBD000005C7 /* Player.swift */,
 				DD5EA47A1AA7730F000005C7 /* Leaderboard.swift */,
+				F6EA24C91AAA084400A22BE2 /* GameSettingsViewController.swift */,
 				48C5315B1AA9EA8B00B12398 /* Ball.swift */,
 				397204781AA5E25A0066F78F /* Main.storyboard */,
 				3972047B1AA5E25A0066F78F /* Images.xcassets */,
@@ -267,6 +268,7 @@
 			files = (
 				DD5EA4791AA75BBD000005C7 /* Player.swift in Sources */,
 				397204771AA5E25A0066F78F /* GameViewController.swift in Sources */,
+				F6EA24CA1AAA084400A22BE2 /* GameSettingsViewController.swift in Sources */,
 				39F14E901AA9D68500CE81B0 /* GameScene.swift in Sources */,
 				DD5EA47B1AA7730F000005C7 /* Leaderboard.swift in Sources */,
 				39672E621AA5F87000E5419D /* LocalDataHandler.swift in Sources */,

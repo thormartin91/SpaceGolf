@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2966.5" y="392.5"/>
+            <point key="canvasLocation" x="3052.5" y="-67.5"/>
         </scene>
         <!--Menu-->
         <scene sceneID="h5C-LU-y0J">
@@ -51,6 +51,9 @@
                                 <state key="normal" title="Settings">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="9yZ-C4-Ev9" kind="show" id="wQV-Lk-7ek"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,6 +64,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQv-pJ-uP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2033.5" y="392.5"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="awA-v9-a2D">
+            <objects>
+                <viewController id="9yZ-C4-Ev9" customClass="GameSettingsViewController" customModule="SpaceGolf" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p6t-8D-blC"/>
+                        <viewControllerLayoutGuide type="bottom" id="hsd-eQ-LxV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MIL-Me-GOh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="RmF-n9-EO1"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yGV-DA-Pmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2528.5" y="764.5"/>
         </scene>
         <!--Add players-->
         <scene sceneID="e0m-N6-iVT">
@@ -97,10 +120,10 @@
                                     <action selector="addPlayerButton:" destination="vap-oK-lYg" eventType="touchUpInside" id="ZAg-gk-iQl"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SAc-3D-6YF">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SAc-3D-6YF">
                                 <rect key="frame" x="16" y="172" width="343" height="475"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -114,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Prw-dQ-P6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502.5" y="392.5"/>
+            <point key="canvasLocation" x="2528.5" y="-67.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iuf-EQ-NAu">

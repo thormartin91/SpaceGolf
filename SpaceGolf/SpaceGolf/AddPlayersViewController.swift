@@ -32,7 +32,7 @@ class AddPlayersViewController: UIViewController {
         // add player to game
         game.addPlayer(playerTextField.text)
         // clear textfield
-        playerTextField.text = "" // clear textfield
+        playerTextField.text = ""
     }
     
 }
