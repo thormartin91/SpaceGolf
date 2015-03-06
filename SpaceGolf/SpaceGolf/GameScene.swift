@@ -10,23 +10,54 @@ import SpriteKit
 import UIKit
 
 class GameScene: SKScene {
+    
     var startPoint = CGPoint()
     var endPoint = CGPoint()
-    let ball = SKSpriteNode(imageNamed:"ball.png")
+
     var planets : [Planet] = []
     
     var line = SKShapeNode();
     
+    var game : Game?
+    var currentPlayer : Player?
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-
         
-//        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
         self.physicsWorld.gravity = CGVectorMake(0, 0)
         
-//        Add planets
+//        TODO: Should be a partog AddPlayerVC
+        self.game = Game()
+        self.game?.players = [Player(id: 0), Player(id: 1)]
         
+        self.newRound()
+    }
+
+//    TODO: Should update map
+    func newRound() {
+        
+        self.addPlanets()
+        
+        self.game?.newRound()
+        
+        for player in self.game!.players {
+            player.ball.position = CGPoint(x: 100, y: 100)
+            self.addChild(player.ball)
+        }
+        
+        self.nextPlayer()
+    }
+    
+    func nextPlayer() {
+        if !self.game!.roundIsDone() {
+            self.currentPlayer = self.game?.nextPlayer()
+        } else {
+            self.newRound()
+        }
+    }
+    
+    func addPlanets() {
+//        Add planets
         let positions : [(CGFloat, CGFloat)] = [(100,200), (400,100), (500,300)]
         for pos in positions {
             let planet = Planet(texture: SKTexture(imageNamed: "RedPlanet"), radius: 50, fieldStrength: 2)
@@ -34,19 +65,8 @@ class GameScene: SKScene {
             self.planets.append(planet)
             self.addChild(planet)
         }
-        
-        
-//        Add ball
-        let location = CGPoint(x: self.frame.height / 2 , y: self.frame.width/2)
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2)
-        ball.physicsBody?.dynamic = true
-        ball.position = location
-        ball.setScale(0.1)
-        
-        self.addChild(ball)
-
     }
-
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
@@ -61,19 +81,21 @@ class GameScene: SKScene {
             endPoint = touch.locationInNode(self)
             
             let pathToDraw = CGPathCreateMutable()
-            CGPathMoveToPoint(pathToDraw, nil, ball.position.x, ball.position.y)
-            CGPathAddLineToPoint(pathToDraw, nil, ball.position.x + (startPoint.x-endPoint.x), ball.position.y + (startPoint.y-endPoint.y))
+            CGPathMoveToPoint(pathToDraw, nil, currentPlayer!.ball.position.x, currentPlayer!.ball.position.y)
+            CGPathAddLineToPoint(pathToDraw, nil, currentPlayer!.ball.position.x + (startPoint.x-endPoint.x), currentPlayer!.ball.position.y + (startPoint.y-endPoint.y))
             
             line.path = pathToDraw
         }
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        var force = CGFloat(-9.8)
+        var force = CGFloat(-5)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
-        ball.physicsBody?.applyImpulse(shootVector)
+        currentPlayer!.ball.physicsBody?.applyImpulse(shootVector)
         line.removeFromParent()
+        
+        self.nextPlayer()
     }
     
    

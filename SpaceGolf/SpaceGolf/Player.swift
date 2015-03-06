@@ -20,7 +20,9 @@ class Player: GKLocalPlayer {
     init(id: Int){
         score = 0
         hits = 0
-        ball = Ball()
+        
+        ball = Ball(mass: 1, ballType: normal)
+        
         self.id = id;
     }
     

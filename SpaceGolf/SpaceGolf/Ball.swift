@@ -25,6 +25,16 @@ class Ball : SKSpriteNode {
         
     }
     
+    override init() {
+        super.init(texture: SKTexture(imageNamed: "ball"), color: UIColor.redColor(), size: CGSizeMake(20, 20));
+        self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2)
+        self.physicsBody?.angularDamping = 10
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     func applyImpulse(vector: CGVector){
         
     }
