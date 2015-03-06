@@ -11,6 +11,7 @@ import Foundation
 
 class Game {
     var players : [Player] = []
+    private var idCounter : Int = 0
     private var playersDone : [Player] = []
     
     private var currentPlayer : Int = 0 {
@@ -25,7 +26,9 @@ class Game {
     }
     
     
-    func addPlayer(player: Player) {
+    func addPlayer(name: String) {
+        var player = Player(id: idCounter, playerName: name)
+        idCounter += 1
         self.players.append(player)
     }
     
