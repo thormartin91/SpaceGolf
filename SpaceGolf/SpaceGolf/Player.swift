@@ -21,7 +21,7 @@ class Player: GKLocalPlayer {
         score = 0
         hits = 0
         
-        ball = Ball(mass: 1, ballType: normal)
+        ball = Ball(mass: 1, ballType: normal, size: CGSize(width: 20, height: 20))
         
         self.id = id;
     }

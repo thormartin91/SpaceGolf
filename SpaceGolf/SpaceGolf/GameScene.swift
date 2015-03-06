@@ -9,7 +9,15 @@
 import SpriteKit
 import UIKit
 
-class GameScene: SKScene {
+struct PhysicsCategory {
+    static let None         : UInt32 = 0
+    static let All          : UInt32 = UInt32.max
+    static let Ball         : UInt32 = 0x1 << 1
+    static let Planet      : UInt32 = 0x1 << 2
+    
+}
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var startPoint = CGPoint()
     var endPoint = CGPoint()
@@ -29,6 +37,8 @@ class GameScene: SKScene {
 //        TODO: Should be a partog AddPlayerVC
         self.game = Game()
         self.game?.players = [Player(id: 0), Player(id: 1)]
+        self.physicsWorld.contactDelegate = self
+
         
         self.newRound()
     }
@@ -66,7 +76,7 @@ class GameScene: SKScene {
             self.addChild(planet)
         }
     }
-    
+
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
@@ -81,6 +91,7 @@ class GameScene: SKScene {
             endPoint = touch.locationInNode(self)
             
             let pathToDraw = CGPathCreateMutable()
+
             CGPathMoveToPoint(pathToDraw, nil, currentPlayer!.ball.position.x, currentPlayer!.ball.position.y)
             CGPathAddLineToPoint(pathToDraw, nil, currentPlayer!.ball.position.x + (startPoint.x-endPoint.x), currentPlayer!.ball.position.y + (startPoint.y-endPoint.y))
             
@@ -98,6 +109,36 @@ class GameScene: SKScene {
         self.nextPlayer()
     }
     
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        var ball : Ball? = ballDidHitPlanet(contact).0
+        var planet : Planet? = ballDidHitPlanet(contact).1
+
+        if (ball != nil ||
+            planet != nil){
+                
+            planet!.isInTheHole(ball!)
+        }
+    }
+    
+    
+    func ballDidHitPlanet(contact: SKPhysicsContact) -> (Ball?, Planet?){
+    
+        if (contact.bodyA.categoryBitMask == PhysicsCategory.Ball &&
+            contact.bodyB.categoryBitMask == PhysicsCategory.Planet){
+        
+                return (contact.bodyA.node as? Ball, contact.bodyB.node as? Planet)
+    
+        } else if (contact.bodyB.categoryBitMask == PhysicsCategory.Ball &&
+                   contact.bodyA.categoryBitMask == PhysicsCategory.Planet){
+        
+                    return (contact.bodyB.node as? Ball, contact.bodyA.node as? Planet)
+
+        } else {
+                return (nil,nil)
+        }
+    }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */

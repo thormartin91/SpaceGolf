@@ -36,9 +36,13 @@ class Planet: SKSpriteNode {
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.dynamic = false
+        physicsBody?.categoryBitMask = PhysicsCategory.Planet;
+
         
         self.configureGravityFieldWitStrength(fieldStrength)
         self.addChild(self.gravityField)
+        
+        
     }
     
     func configureGravityFieldWitStrength(strength: Float) {
