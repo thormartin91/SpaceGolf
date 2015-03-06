@@ -32,7 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02008EB41AA5F95A0088AFA8 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		02008EB41AA5F95A0088AFA8 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball.png; path = ../../ball.png; sourceTree = "<group>"; };
 		393A92101AA86A950068FF32 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		39672E611AA5F87000E5419D /* LocalDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataHandler.swift; sourceTree = "<group>"; };
 		39672E631AA6048C00E5419D /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
@@ -95,7 +95,6 @@
 				397204761AA5E25A0066F78F /* GameViewController.swift */,
 				397204781AA5E25A0066F78F /* Main.storyboard */,
 				3972047B1AA5E25A0066F78F /* Images.xcassets */,
-				02008EB41AA5F95A0088AFA8 /* ball.png */,
 				3972047D1AA5E25A0066F78F /* LaunchScreen.xib */,
 				3972046E1AA5E25A0066F78F /* Supporting Files */,
 				393A92101AA86A950068FF32 /* Game.swift */,
@@ -141,6 +140,7 @@
 		39D9A8E41AA62B7900F32B07 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				02008EB41AA5F95A0088AFA8 /* ball.png */,
 				39D9A8E51AA62B7900F32B07 /* RedPlanet.png */,
 			);
 			path = Images;
