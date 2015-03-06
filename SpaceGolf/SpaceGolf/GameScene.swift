@@ -40,42 +40,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.gravity = CGVectorMake(0, 0)
         
-        
-        
 //        TODO: Should be a partog AddPlayerVC
         self.physicsWorld.contactDelegate = self
-
         
-        for player in self.game!.players {
-            self.addChild(player.ball)
-        }
-        
+        self.addPlanets()
         self.newRound()
     }
 
 //    TODO: Should update map
     func newRound() {
         
-        self.addPlanets()
-        
         self.game?.newRound()
         
         for player in self.game!.players {
+            let physicsBody = player.ball.physicsBody
+            player.ball.physicsBody = nil
+            
+//          TODO: Should be assigned to a given start point?
             player.ball.position = CGPoint(x: 100, y: 100)
+            player.ball.physicsBody = physicsBody
+            player.ball.physicsBody?.dynamic = true
         }
         
         self.nextPlayer()
     }
     
     func nextPlayer() {
-        if !self.game!.roundIsDone() {
-            self.currentPlayer = self.game?.nextPlayer()
-        } else {
-            self.newRound()
+        self.currentPlayer = self.game?.nextPlayer()
+        
+        if self.currentPlayer?.ball.parent == nil {
+            self.addChild(self.currentPlayer!.ball)
         }
     }
     
+//    TODO: Should be found in map class?
     func addPlanets() {
+        for planet in self.planets {
+            planet.removeFromParent()
+        }
+        self.planets = []
+        
 //        Add planets
         let positions : [(CGFloat, CGFloat)] = [(100,200), (400,100), (500,300)]
         for pos in positions {
@@ -83,8 +87,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             planet.position = CGPointMake(pos.0, pos.1)
             self.planets.append(planet)
             self.addChild(planet)
-            planet.state = .Hole
         }
+        
+        self.planets.last?.state = .Hole
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -125,17 +130,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var ball : Ball? = ballDidHitPlanet(contact).0
         var planet : Planet? = ballDidHitPlanet(contact).1
 
-        if (ball != nil ||
-            planet != nil){
+        if (ball != nil || planet != nil){
+            if planet!.isInTheHole(ball!) {
+                self.game?.playerIsDone(self.game!.playerForBall(ball!)!)
+                ball!.physicsBody?.dynamic = false
+                ball!.removeFromParent()
                 
-                if planet!.isInTheHole(ball!) {
-                    self.game?.playerIsDone(self.game!.playerForBall(ball!)!)
-                    ball!.physicsBody?.dynamic = false
-                    println("ball in hole")
-                    if self.game!.roundIsDone() {
-                        self.newRound()
-                    }
+                if self.game!.roundIsDone() {
+                    self.newRound()
                 }
+            }
         }
     }
     
@@ -143,9 +147,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func ballDidHitPlanet(contact: SKPhysicsContact) -> (Ball?, Planet?){
         if (contact.bodyA.categoryBitMask == PhysicsCategory.Ball &&
             contact.bodyB.categoryBitMask == PhysicsCategory.Planet){
-        
+                
                 return (contact.bodyA.node as? Ball, contact.bodyB.node as? Planet)
-    
         } else if (contact.bodyB.categoryBitMask == PhysicsCategory.Ball &&
                    contact.bodyA.categoryBitMask == PhysicsCategory.Planet){
         

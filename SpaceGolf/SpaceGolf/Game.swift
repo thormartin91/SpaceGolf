@@ -42,11 +42,15 @@ class Game {
     }
     
     func nextPlayer() -> Player? {
-        if self.players.count == 0 {
+        if self.players.count == 0 || self.players.count == self.playersDone.count {
             return nil
         }
         
-        return self.players[self.currentPlayer++]
+        var nextPlayer = self.players[self.currentPlayer++]
+        while contains(self.playersDone, nextPlayer) {
+            nextPlayer = self.players[self.currentPlayer++]
+        }
+        return nextPlayer
     }
     
     func currentStandings() -> [Player] {

@@ -30,6 +30,7 @@ class Ball : SKSpriteNode {
         physicsBody?.mass = CGFloat(mass)
         physicsBody?.categoryBitMask = PhysicsCategory.Ball
         physicsBody?.contactTestBitMask = PhysicsCategory.Planet
+        physicsBody?.angularDamping = 10
     }
     
 //    override init() {
