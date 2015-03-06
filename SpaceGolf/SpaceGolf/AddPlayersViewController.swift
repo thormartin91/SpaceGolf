@@ -13,7 +13,7 @@ class AddPlayersViewController: UIViewController {
     
     @IBOutlet weak var playerTextField: UITextField!
     @IBOutlet weak var playersTextView: UITextView!
-
+    var game = Game()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,12 @@ class AddPlayersViewController: UIViewController {
     }
     
     @IBAction func addPlayerButton(sender: AnyObject) {
-        var existingPlayers = playersTextView.text
-        playersTextView.text = playerTextField.text + "\n" + existingPlayers
-        playerTextField.text = ""
-
+        // update view with playername
+        playersTextView.text = playerTextField.text + "\n" + playersTextView.text
+        // add player to game
+        game.addPlayer(playerTextField.text)
+        // clear textfield
+        playerTextField.text = "" // clear textfield
     }
     
 }
