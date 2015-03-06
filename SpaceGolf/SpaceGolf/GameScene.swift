@@ -9,22 +9,34 @@
 import SpriteKit
 import UIKit
 
-class GameScene: SKScene {
+struct PhysicsCategory {
+    static let None         : UInt32 = 0
+    static let All          : UInt32 = UInt32.max
+    static let Ball         : UInt32 = 0x1 << 1
+    static let Planet      : UInt32 = 0x1 << 2
+    
+}
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
     var startPoint = CGPoint()
     var endPoint = CGPoint()
-    let ball = SKSpriteNode(imageNamed:"ball.png")
+    var ball : Ball?
     var planets : [Planet] = []
     
     var line = SKShapeNode();
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        
+        
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
 
         
 //        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
         self.physicsWorld.gravity = CGVectorMake(0, 0)
-        
+        self.physicsWorld.contactDelegate = self
 //        Add planets
         
         let positions : [(CGFloat, CGFloat)] = [(100,200), (400,100), (500,300)]
@@ -35,15 +47,12 @@ class GameScene: SKScene {
             self.addChild(planet)
         }
         
-        
 //        Add ball
-        let location = CGPoint(x: self.frame.height / 2 , y: self.frame.width/2)
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2)
-        ball.physicsBody?.dynamic = true
-        ball.position = location
-        ball.setScale(0.1)
+        ball = Ball(mass: 2, ballType: normal, size: CGSizeMake(200, 200))
         
-        self.addChild(ball)
+        println(ball)
+        
+        self.addChild(ball!)
 
     }
 
@@ -61,8 +70,9 @@ class GameScene: SKScene {
             endPoint = touch.locationInNode(self)
             
             let pathToDraw = CGPathCreateMutable()
-            CGPathMoveToPoint(pathToDraw, nil, ball.position.x, ball.position.y)
-            CGPathAddLineToPoint(pathToDraw, nil, ball.position.x + (startPoint.x-endPoint.x), ball.position.y + (startPoint.y-endPoint.y))
+            CGPathMoveToPoint(pathToDraw, nil, ball!.position.x, ball!.position.y)
+            
+            CGPathAddLineToPoint(pathToDraw, nil, ball!.position.x + (startPoint.x-endPoint.x), ball!.position.y + (startPoint.y-endPoint.y))
             
             line.path = pathToDraw
         }
@@ -72,10 +82,45 @@ class GameScene: SKScene {
         var force = CGFloat(-9.8)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
-        ball.physicsBody?.applyImpulse(shootVector)
+        ball?.physicsBody?.applyImpulse(shootVector)
         line.removeFromParent()
     }
     
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        var ball : Ball? = ballDidHitPlanet(contact).0
+        var planet : Planet? = ballDidHitPlanet(contact).1
+
+       
+        if (ball != nil ||
+            planet != nil){
+                
+            planet!.isInTheHole(ball!)
+       
+        }
+        
+        
+        
+    }
+    
+    
+    func ballDidHitPlanet(contact: SKPhysicsContact) -> (Ball?, Planet?){
+    
+        if (contact.bodyA.categoryBitMask == PhysicsCategory.Ball &&
+            contact.bodyB.categoryBitMask == PhysicsCategory.Planet){
+        
+                return (contact.bodyA.node as? Ball, contact.bodyB.node as? Planet)
+    
+        } else if (contact.bodyB.categoryBitMask == PhysicsCategory.Ball &&
+                   contact.bodyA.categoryBitMask == PhysicsCategory.Planet){
+        
+                    return (contact.bodyB.node as? Ball, contact.bodyA.node as? Planet)
+
+        } else {
+                return (nil,nil)
+        }
+    }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
