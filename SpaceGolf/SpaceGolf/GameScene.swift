@@ -43,8 +43,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
 //        TODO: Should be a partog AddPlayerVC
-        self.game = Game()
-        self.game?.players = [Player(id: 0), Player(id: 1)]
         self.physicsWorld.contactDelegate = self
 
         
