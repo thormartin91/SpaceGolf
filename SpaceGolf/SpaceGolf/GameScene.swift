@@ -7,37 +7,67 @@
 //
 
 import SpriteKit
+import UIKit
 
 class GameScene: SKScene {
+    
+    var startPoint = CGPoint()
+    var endPoint = CGPoint()
+    let ball = SKSpriteNode(imageNamed:"ball.png")
+    
+    var line = SKShapeNode();
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+
         
-        self.addChild(myLabel)
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: view.frame)
+        self.physicsWorld.gravity = CGVectorMake(0, 0)
+        
+        
+        let location = CGPoint(x: self.frame.height / 2 , y: self.frame.width/2)
+        
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2)
+        ball.physicsBody?.dynamic = true
+        //ball.physicsBody?.friction = 1
+        
+        ball.position = location
+        ball.setScale(0.1)
+        
+        self.addChild(ball)
+        
     }
-    
+
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
+        self.addChild(line)
         for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+            startPoint = touch.locationInNode(self)
         }
     }
+    
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        for touch: AnyObject in touches {
+            endPoint = touch.locationInNode(self)
+            
+            let pathToDraw = CGPathCreateMutable()
+            CGPathMoveToPoint(pathToDraw, nil, ball.position.x, ball.position.y)
+            CGPathAddLineToPoint(pathToDraw, nil, ball.position.x + (startPoint.x-endPoint.x), ball.position.y + (startPoint.y-endPoint.y))
+            
+            line.path = pathToDraw
+        }
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        var force = CGFloat(-9.8)
+        var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
+        
+        ball.physicsBody?.applyImpulse(shootVector)
+        line.removeFromParent()
+    }
+    
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */

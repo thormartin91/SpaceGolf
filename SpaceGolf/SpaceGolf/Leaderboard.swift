@@ -9,5 +9,6 @@
 import Foundation
 
 class Leaderboard {
+    var leaderList = [Player]()
     
 }
