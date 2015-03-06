@@ -35,4 +35,12 @@ class AddPlayersViewController: UIViewController {
         playerTextField.text = ""
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowGameScene" {
+            let gameVC = segue.destinationViewController as GameViewController
+            let v = gameVC.view
+            
+            gameVC.scene?.game = self.game
+        }
+    }
 }

@@ -35,8 +35,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVectorMake(0, 0)
         
 //        TODO: Should be a partog AddPlayerVC
-        self.game = Game()
-        self.game?.players = [Player(id: 0), Player(id: 1)]
         self.physicsWorld.contactDelegate = self
 
         

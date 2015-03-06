@@ -27,6 +27,8 @@ extension SKNode {
 
 class GameViewController: UIViewController {
 
+    let scene : GameScene?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let scene = GameScene(size: self.view.bounds.size)
