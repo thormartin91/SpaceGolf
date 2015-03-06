@@ -9,6 +9,12 @@
 import Foundation
 import GameKit
 
+class Ball {
+    init(){
+        
+    }
+}
+
 class Player: GKLocalPlayer {
     let id: Int
     var score: Double
