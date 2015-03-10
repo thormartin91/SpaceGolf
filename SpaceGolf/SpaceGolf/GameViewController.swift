@@ -27,9 +27,15 @@ extension SKNode {
 
 class GameViewController: UIViewController {
 
+    var game : Game?
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         let scene = GameScene(size: self.view.bounds.size)
+        scene.game = self.game
+        
         let skView = view as SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
@@ -40,5 +46,13 @@ class GameViewController: UIViewController {
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.LandscapeLeft.rawValue)
     }
 }

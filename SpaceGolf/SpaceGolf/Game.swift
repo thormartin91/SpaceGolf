@@ -11,9 +11,24 @@ import Foundation
 
 class Game {
     var players : [Player] = []
-    private var currentPlayer : Int = 0
+    private var idCounter : Int = 0
+    private var playersDone : [Player] = []
     
-    func addPlayer(player: Player) {
+    private var currentPlayer : Int = 0 {
+        didSet {
+            self.currentPlayer = currentPlayer % self.players.count
+        }
+    }
+    private var firstPlayer : Int = 0 {
+        didSet {
+            self.firstPlayer = firstPlayer % self.players.count
+        }
+    }
+    
+    
+    func addPlayer(name: String) {
+        var player = Player(id: idCounter, playerName: name)
+        idCounter += 1
         self.players.append(player)
     }
     
@@ -22,18 +37,46 @@ class Game {
     }
     
     func newRound() {
-        self.currentPlayer = 0
+        self.currentPlayer = firstPlayer++
+        self.playersDone = []
     }
     
     func nextPlayer() -> Player? {
-        if self.players.count == 0 {
+        if self.players.count == 0 || self.players.count == self.playersDone.count {
             return nil
         }
         
-        return self.players[self.currentPlayer++]
+        var nextPlayer = self.players[self.currentPlayer++]
+        while contains(self.playersDone, nextPlayer) {
+            nextPlayer = self.players[self.currentPlayer++]
+        }
+        return nextPlayer
     }
     
     func currentStandings() -> [Player] {
         return sorted(self.players) {$0.score > $1.score}
     }
+    
+    func roundIsDone() -> Bool {
+        return self.players.count == self.playersDone.count
+    }
+    
+    func playerIsDone(player: Player) {
+        if !contains(self.playersDone, player) {
+            self.removePlayer(player)
+            self.playersDone.append(player)
+        }
+    }
+    
+    func playerForBall(ball: Ball)-> Player? {
+        for player in self.players {
+            if player.ball == ball {
+                return player
+            }
+        }
+        
+        return nil
+    }
+    
+    
 }

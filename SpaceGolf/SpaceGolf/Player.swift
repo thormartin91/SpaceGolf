@@ -15,11 +15,13 @@ class Player: GKLocalPlayer {
     var score: Double
     private var hits: Int
     var ball: Ball
+    var name: String
     
-    init(id: Int){
+    init(id: Int, playerName: String){
         score = 0
         hits = 0
-        ball = Ball()
+        name = playerName
+        ball = Ball(mass: 1, ballType: normal, size: CGSize(width: 20, height: 20))
         self.id = id;
     }
     
