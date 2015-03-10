@@ -12,24 +12,33 @@ class Leaderboard {
     private var leaderList = [Player]()
     
     
-    
+    //Antar at listen er sortert
     func addPlayerToLeaderboard(player: Player) {
-        
-    }
-    
-    func playerOnHighScoreList(player: Player) -> Bool {
-        if (leaderList.count <= 5) {
-            leaderList.append(player)
-        }
-        else {
-            if (player.score > lastPlayerOnLeaderboard().score) {
-                leaderList.removeAtIndex(4)
+        if (playerOnHighScoreList(player)) {
+            if (leaderList.count >= 5){
+                removePlayerFromList(lastPlayerOnLeaderboard())
                 leaderList.append(player)
-                //leaderList.sort();
+            }
+            else {
+                leaderList.append(player)
             }
             
         }
-        return  true
+        leaderList.sort({$0.score < $1.score})
+    }
+    
+    //Sjekker om brukeren har høy nok score til å komme på highscoreListen
+    func playerOnHighScoreList(player: Player) -> Bool {
+        if (leaderList.count <= 5) {
+            return true;
+        }
+        else {
+            if (player.score > lastPlayerOnLeaderboard().score) {
+                return true
+            }
+            
+        }
+        return  false
     }
     
     /*Finds the last player on the leaderboard.
@@ -44,6 +53,15 @@ class Leaderboard {
             }
         }
         return lowestScore;
+    }
+    
+    func removePlayerFromList(player: Player) {
+        for var i = 0; i < leaderList.count; i++ {
+            if (leaderList[i] == player) {
+                leaderList.removeAtIndex(i)
+                return
+            }
+        }
     }
     
 }
