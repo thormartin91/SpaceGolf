@@ -24,6 +24,7 @@
 		DD5EA47B1AA7730F000005C7 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA47A1AA7730F000005C7 /* Leaderboard.swift */; };
 		F67EFC7E1AA7710000C6EFBB /* GameMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67EFC7D1AA7710000C6EFBB /* GameMenuViewController.swift */; };
 		F682E54E1AA9F2EE006E14F1 /* AddPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F682E54D1AA9F2EE006E14F1 /* AddPlayersViewController.swift */; };
+		F6C9D3751AB1D06200FCEECC /* PauseMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9D3741AB1D06200FCEECC /* PauseMenuViewController.swift */; };
 		F6EA24CA1AAA084400A22BE2 /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA24C91AAA084400A22BE2 /* GameSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		DD5EA47A1AA7730F000005C7 /* Leaderboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 		F67EFC7D1AA7710000C6EFBB /* GameMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMenuViewController.swift; sourceTree = "<group>"; };
 		F682E54D1AA9F2EE006E14F1 /* AddPlayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayersViewController.swift; sourceTree = "<group>"; };
+		F6C9D3741AB1D06200FCEECC /* PauseMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseMenuViewController.swift; sourceTree = "<group>"; };
 		F6EA24C91AAA084400A22BE2 /* GameSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				F67EFC7D1AA7710000C6EFBB /* GameMenuViewController.swift */,
 				397204761AA5E25A0066F78F /* GameViewController.swift */,
 				F682E54D1AA9F2EE006E14F1 /* AddPlayersViewController.swift */,
+				F6C9D3741AB1D06200FCEECC /* PauseMenuViewController.swift */,
 				DD5EA4781AA75BBD000005C7 /* Player.swift */,
 				DD5EA47A1AA7730F000005C7 /* Leaderboard.swift */,
 				F6EA24C91AAA084400A22BE2 /* GameSettingsViewController.swift */,
@@ -277,6 +280,7 @@
 				F682E54E1AA9F2EE006E14F1 /* AddPlayersViewController.swift in Sources */,
 				48C5315C1AA9EA8B00B12398 /* Ball.swift in Sources */,
 				393A92111AA86A950068FF32 /* Game.swift in Sources */,
+				F6C9D3751AB1D06200FCEECC /* PauseMenuViewController.swift in Sources */,
 				39672E641AA6048C00E5419D /* Planet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

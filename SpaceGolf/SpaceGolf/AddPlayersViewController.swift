@@ -27,12 +27,22 @@ class AddPlayersViewController: UIViewController {
     }
     
     @IBAction func addPlayerButton(sender: AnyObject) {
-        // update view with playername
-        playersTextView.text = playerTextField.text + "\n" + playersTextView.text
-        // add player to game
-        game.addPlayer(playerTextField.text)
-        // clear textfield
-        playerTextField.text = ""
+        if !playerTextField.text.isEmpty { // prevent from adding players without characters
+            // update view with playername
+            playersTextView.text = playerTextField.text + "\n" + playersTextView.text
+            // add player to game
+            game.addPlayer(playerTextField.text)
+            // clear textfield
+            playerTextField.text = ""
+        }
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if playersTextView.text.isEmpty {
+            return false // prevent from starting game without players
+        } else {
+            return true // start game
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
