@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import SpriteKit
 
 class GameMenuViewController: UIViewController {
+    
+    @IBOutlet weak var btn_play: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do additional setup after loading the view
+        let spaceGolf = UIImage(named: "SpaceGolf.png")
+        self.view.backgroundColor = UIColor(patternImage: spaceGolf!)
+        
     }
     
     override func didReceiveMemoryWarning() {
