@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		02008EB51AA5F95A0088AFA8 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 02008EB41AA5F95A0088AFA8 /* ball.png */; };
 		0201041F1AB72195009E9FE0 /* SpaceGolf.png in Resources */ = {isa = PBXBuildFile; fileRef = 0201041E1AB72195009E9FE0 /* SpaceGolf.png */; };
+		020EAED81AB98F2100695DD2 /* btn_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EAED71AB98F2100695DD2 /* btn_play.png */; };
+		020EAEDA1AB9903C00695DD2 /* btn_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EAED91AB9903C00695DD2 /* btn_settings.png */; };
+		020EAEDC1AB993FB00695DD2 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EAEDB1AB993FB00695DD2 /* btn_back.png */; };
+		020EAEDE1AB9A1C700695DD2 /* btn_resume.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EAEDD1AB9A1C700695DD2 /* btn_resume.png */; };
+		020EAEE01AB9A5B800695DD2 /* bgnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EAEDF1AB9A5B800695DD2 /* bgnd.png */; };
+		020EAEE21AB9A95600695DD2 /* btn_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EAEE11AB9A95600695DD2 /* btn_pause.png */; };
+		020EAEE41AB9AC5B00695DD2 /* btn_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EAEE31AB9AC5B00695DD2 /* btn_start.png */; };
+		020EAEE61AB9AD0200695DD2 /* btn_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EAEE51AB9AD0200695DD2 /* btn_add.png */; };
+		020EAEE81AB9AE7500695DD2 /* btn_mainmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 020EAEE71AB9AE7500695DD2 /* btn_mainmenu.png */; };
 		393A92111AA86A950068FF32 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A92101AA86A950068FF32 /* Game.swift */; };
 		39672E621AA5F87000E5419D /* LocalDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39672E611AA5F87000E5419D /* LocalDataHandler.swift */; };
 		39672E641AA6048C00E5419D /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39672E631AA6048C00E5419D /* Planet.swift */; };
@@ -42,6 +51,15 @@
 /* Begin PBXFileReference section */
 		02008EB41AA5F95A0088AFA8 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball.png; path = ../../ball.png; sourceTree = "<group>"; };
 		0201041E1AB72195009E9FE0 /* SpaceGolf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceGolf.png; sourceTree = "<group>"; };
+		020EAED71AB98F2100695DD2 /* btn_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_play.png; sourceTree = "<group>"; };
+		020EAED91AB9903C00695DD2 /* btn_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_settings.png; sourceTree = "<group>"; };
+		020EAEDB1AB993FB00695DD2 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
+		020EAEDD1AB9A1C700695DD2 /* btn_resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_resume.png; sourceTree = "<group>"; };
+		020EAEDF1AB9A5B800695DD2 /* bgnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgnd.png; sourceTree = "<group>"; };
+		020EAEE11AB9A95600695DD2 /* btn_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_pause.png; sourceTree = "<group>"; };
+		020EAEE31AB9AC5B00695DD2 /* btn_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_start.png; sourceTree = "<group>"; };
+		020EAEE51AB9AD0200695DD2 /* btn_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_add.png; sourceTree = "<group>"; };
+		020EAEE71AB9AE7500695DD2 /* btn_mainmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_mainmenu.png; sourceTree = "<group>"; };
 		393A92101AA86A950068FF32 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		39672E611AA5F87000E5419D /* LocalDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataHandler.swift; sourceTree = "<group>"; };
 		39672E631AA6048C00E5419D /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
@@ -105,6 +123,15 @@
 		3972046D1AA5E25A0066F78F /* SpaceGolf */ = {
 			isa = PBXGroup;
 			children = (
+				020EAEE71AB9AE7500695DD2 /* btn_mainmenu.png */,
+				020EAEE51AB9AD0200695DD2 /* btn_add.png */,
+				020EAEE31AB9AC5B00695DD2 /* btn_start.png */,
+				020EAEE11AB9A95600695DD2 /* btn_pause.png */,
+				020EAEDF1AB9A5B800695DD2 /* bgnd.png */,
+				020EAEDD1AB9A1C700695DD2 /* btn_resume.png */,
+				020EAEDB1AB993FB00695DD2 /* btn_back.png */,
+				020EAED91AB9903C00695DD2 /* btn_settings.png */,
+				020EAED71AB98F2100695DD2 /* btn_play.png */,
 				0201041E1AB72195009E9FE0 /* SpaceGolf.png */,
 				39F14E8F1AA9D68500CE81B0 /* GameScene.swift */,
 				39D9A8E31AA62B7900F32B07 /* Resources */,
@@ -252,10 +279,19 @@
 			files = (
 				3972047F1AA5E25A0066F78F /* LaunchScreen.xib in Resources */,
 				02008EB51AA5F95A0088AFA8 /* ball.png in Resources */,
+				020EAEE41AB9AC5B00695DD2 /* btn_start.png in Resources */,
 				0201041F1AB72195009E9FE0 /* SpaceGolf.png in Resources */,
+				020EAEE01AB9A5B800695DD2 /* bgnd.png in Resources */,
 				39D9A8E61AA62B7900F32B07 /* RedPlanet.png in Resources */,
+				020EAEE61AB9AD0200695DD2 /* btn_add.png in Resources */,
 				3972047C1AA5E25A0066F78F /* Images.xcassets in Resources */,
+				020EAEDE1AB9A1C700695DD2 /* btn_resume.png in Resources */,
+				020EAEE81AB9AE7500695DD2 /* btn_mainmenu.png in Resources */,
 				3972047A1AA5E25A0066F78F /* Main.storyboard in Resources */,
+				020EAED81AB98F2100695DD2 /* btn_play.png in Resources */,
+				020EAEE21AB9A95600695DD2 /* btn_pause.png in Resources */,
+				020EAEDA1AB9903C00695DD2 /* btn_settings.png in Resources */,
+				020EAEDC1AB993FB00695DD2 /* btn_back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
