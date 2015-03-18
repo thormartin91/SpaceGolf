@@ -78,5 +78,13 @@ class Game {
         return nil
     }
     
+    func getCurrentPlayer() -> Player? {
+        for player in players {
+            if player.id == currentPlayer {
+                return player
+            }
+        }
+        return nil
+    }
     
 }
