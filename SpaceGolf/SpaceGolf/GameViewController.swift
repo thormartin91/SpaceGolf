@@ -66,4 +66,12 @@ class GameViewController: UIViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowPauseScene" {
+            let pauseVC = segue.destinationViewController as PauseMenuViewController
+            pauseVC.game = self.game
+            pauseVC.navigationController?.navigationBarHidden = true
+        }
+    }
+    
 }
