@@ -25,6 +25,7 @@ class SpaceGolfTests: XCTestCase {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
         
+        
     }
     
     func testPerformanceExample() {
@@ -33,5 +34,5 @@ class SpaceGolfTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
 }
