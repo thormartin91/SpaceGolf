@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02008EB51AA5F95A0088AFA8 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 02008EB41AA5F95A0088AFA8 /* ball.png */; };
+		0201041F1AB72195009E9FE0 /* SpaceGolf.png in Resources */ = {isa = PBXBuildFile; fileRef = 0201041E1AB72195009E9FE0 /* SpaceGolf.png */; };
 		393A92111AA86A950068FF32 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A92101AA86A950068FF32 /* Game.swift */; };
 		39672E621AA5F87000E5419D /* LocalDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39672E611AA5F87000E5419D /* LocalDataHandler.swift */; };
 		39672E641AA6048C00E5419D /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39672E631AA6048C00E5419D /* Planet.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		02008EB41AA5F95A0088AFA8 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball.png; path = ../../ball.png; sourceTree = "<group>"; };
+		0201041E1AB72195009E9FE0 /* SpaceGolf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceGolf.png; sourceTree = "<group>"; };
 		393A92101AA86A950068FF32 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		39672E611AA5F87000E5419D /* LocalDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataHandler.swift; sourceTree = "<group>"; };
 		39672E631AA6048C00E5419D /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		3972046D1AA5E25A0066F78F /* SpaceGolf */ = {
 			isa = PBXGroup;
 			children = (
+				0201041E1AB72195009E9FE0 /* SpaceGolf.png */,
 				39F14E8F1AA9D68500CE81B0 /* GameScene.swift */,
 				39D9A8E31AA62B7900F32B07 /* Resources */,
 				397204701AA5E25A0066F78F /* AppDelegate.swift */,
@@ -249,6 +252,7 @@
 			files = (
 				3972047F1AA5E25A0066F78F /* LaunchScreen.xib in Resources */,
 				02008EB51AA5F95A0088AFA8 /* ball.png in Resources */,
+				0201041F1AB72195009E9FE0 /* SpaceGolf.png in Resources */,
 				39D9A8E61AA62B7900F32B07 /* RedPlanet.png in Resources */,
 				3972047C1AA5E25A0066F78F /* Images.xcassets in Resources */,
 				3972047A1AA5E25A0066F78F /* Main.storyboard in Resources */,
