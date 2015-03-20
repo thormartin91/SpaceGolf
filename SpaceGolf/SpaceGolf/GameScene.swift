@@ -115,15 +115,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        line.removeFromParent()
+        line = SKShapeNode()
+        
+//        Preven player from shooting before te ball is relatively static
+        if self.sizeOfVector(currentPlayer!.ball.physicsBody!.velocity) > 4 {
+            return
+        }
+        
         var force = CGFloat(-5)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
+        Sound.playSoundWithName("hitBall", ofType: "mp3")
         currentPlayer!.ball.physicsBody?.applyImpulse(shootVector)
-        line.removeFromParent()
-        
         self.nextPlayer()
     }
     
+    private func sizeOfVector(vector: CGVector) -> CGFloat {
+        return sqrt(pow(vector.dx,2) + pow(vector.dy,2))
+    }
     
     func didBeginContact(contact: SKPhysicsContact) {
         
@@ -132,6 +142,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         if (ball != nil || planet != nil){
             if planet!.isInTheHole(ball!) {
+                
+                Sound.playSoundWithName("hitHole", ofType: "mp3")
+                
                 self.game?.playerIsDone(self.game!.playerForBall(ball!)!)
                 ball!.physicsBody?.dynamic = false
                 ball!.removeFromParent()

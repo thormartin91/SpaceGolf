@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    var backgroundMusicPlayer : AVAudioPlayer?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        var error : NSError?
+        if let musicPath = NSBundle.mainBundle().pathForResource("music", ofType: "mp3") {
+            self.backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: musicPath), error: &error)
+            self.backgroundMusicPlayer?.prepareToPlay()
+            self.backgroundMusicPlayer?.play()
+        }
+        
         return true
     }
 

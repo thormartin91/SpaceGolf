@@ -41,8 +41,8 @@ class PauseMenuViewController: UIViewController {
     func currentScoreList() {
         if let players = game?.currentStandings() {
             for player in players {
-                currentScoreNames.text = currentScoreNames.text + "\n" + player.name
-                currentScoreScores.text = currentScoreScores.text + "\n" + "\(player.score)"
+//                currentScoreNames.text = currentScoreNames.text + "\n" + player.name
+//                currentScoreScores.text = currentScoreScores.text + "\n" + "\(player.score)"
             }
         }
     }
