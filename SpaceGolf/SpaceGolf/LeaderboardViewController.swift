@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class LeaderboardViewController: UIViewController {
-    var leaderboard: LeaderboardModel! = LeaderboardModel()
+    let leaderboard: LeaderboardModel! = LeaderboardModel()
 
     
     
@@ -28,12 +28,14 @@ class LeaderboardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Funksjonen som legger spillernavnene til viewet
     func addPlayersToHighScoreView(){
         for player in leaderboard.getLeaderList() {
             highscoreView.insertText("\(player.name)\n")
         }
     }
     
+    //Legger til spillerscorene til viewet
     func addScoreToScoreView() {
         for player in leaderboard.getLeaderList() {
             scoreView.insertText("\(player.score)\n")
@@ -56,6 +58,7 @@ class LeaderboardViewController: UIViewController {
     //Overskriften
     @IBOutlet weak var headerLabel: UILabel!
     
+    //testfunksjon. Brukes bare så lenge vi ikke har noe faktisk objekt å bruke.
     func test(){
         let player1 = Player(id: 1, playerName: "Jonas")
         let player2 = Player(id: 2, playerName: "Thor Martin")

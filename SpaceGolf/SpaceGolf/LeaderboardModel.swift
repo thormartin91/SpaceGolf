@@ -13,11 +13,12 @@ class LeaderboardModel {
     private var leaderList: [Player]
     private var length: Int
     
+    //Kan instansiere et leaderboard med et bestemt antall plasser...
     init (length: Int) {
         leaderList = [Player]()
         self.length = length
     }
-    
+    //... eller med standarden som for øyeblikket er 5.
     init() {
         leaderList = [Player]()
         self.length = 5
@@ -66,6 +67,7 @@ class LeaderboardModel {
         return lowestScore;
     }
     
+    //fjerner en bestemt spiller fra leaderboard
     func removePlayerFromList(player: Player) {
         for var i = 0; i < leaderList.count; i++ {
             if (leaderList[i] == player) {
@@ -75,6 +77,7 @@ class LeaderboardModel {
         }
     }
     
+    //henter ut leaderboarden
     func getLeaderList() -> [Player] {
         return leaderList
     }
