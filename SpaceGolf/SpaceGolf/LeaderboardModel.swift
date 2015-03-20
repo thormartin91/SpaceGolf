@@ -7,15 +7,26 @@
 //
 
 import Foundation
+import UIKit
 
-class Leaderboard {
-    private var leaderList = [Player]()
+class LeaderboardModel {
+    private var leaderList: [Player]
+    private var length: Int
     
+    init (length: Int) {
+        leaderList = [Player]()
+        self.length = length
+    }
+    
+    init() {
+        leaderList = [Player]()
+        self.length = 5
+    }
     
     //Antar at listen er sortert
     func addPlayerToLeaderboard(player: Player) {
         if (playerOnHighScoreList(player)) {
-            if (leaderList.count >= 5){
+            if (leaderList.count >= length){
                 removePlayerFromList(lastPlayerOnLeaderboard())
                 leaderList.append(player)
             }
@@ -24,12 +35,12 @@ class Leaderboard {
             }
             
         }
-        leaderList.sort({$0.score < $1.score})
+        leaderList.sort({$0.score > $1.score})
     }
     
     //Sjekker om brukeren har høy nok score til å komme på highscoreListen
     func playerOnHighScoreList(player: Player) -> Bool {
-        if (leaderList.count <= 5) {
+        if (leaderList.count <= length) {
             return true;
         }
         else {
@@ -64,4 +75,7 @@ class Leaderboard {
         }
     }
     
+    func getLeaderList() -> [Player] {
+        return leaderList
+    }
 }

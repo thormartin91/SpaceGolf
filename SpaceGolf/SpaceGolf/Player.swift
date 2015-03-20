@@ -12,7 +12,7 @@ import SpriteKit
 
 class Player: GKLocalPlayer {
     let id: Int
-    var score: Double
+    var score: Int
     private var hits: Int
     var ball: Ball
     var name: String
@@ -25,7 +25,7 @@ class Player: GKLocalPlayer {
         self.id = id;
     }
     
-    func changeScore(deltaScore: Double){
+    func changeScore(deltaScore: Int){
         score += deltaScore;
     }
     
