@@ -48,6 +48,10 @@ class AddPlayersViewController: UIViewController {
         }
     }
     
+    @IBAction func back(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowGameScene" {
             let gameVC = segue.destinationViewController as GameViewController

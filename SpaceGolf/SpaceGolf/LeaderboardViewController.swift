@@ -20,6 +20,10 @@ class LeaderboardViewController: UIViewController {
         customizeFont()
         addPlayersToHighScoreView()
         addScoreToScoreView()
+        
+        let bgnd = UIImage(named: "bgnd")
+        self.view.backgroundColor = UIColor(patternImage: bgnd!)
+        
         // Do additional setup after loading the view
     }
     
@@ -58,6 +62,9 @@ class LeaderboardViewController: UIViewController {
     //Overskriften
     @IBOutlet weak var headerLabel: UILabel!
     
+    @IBAction func back(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     //testfunksjon. Brukes bare så lenge vi ikke har noe faktisk objekt å bruke.
     func test(){
         let player1 = Player(id: 1, playerName: "Jonas")

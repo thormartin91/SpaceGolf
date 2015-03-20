@@ -19,9 +19,8 @@ class LeaderboardModel {
         self.length = length
     }
     //... eller med standarden som for øyeblikket er 5.
-    init() {
-        leaderList = [Player]()
-        self.length = 5
+    convenience init() {
+        self.init(length: 5)
     }
     
     //Antar at listen er sortert
@@ -44,13 +43,17 @@ class LeaderboardModel {
         if (leaderList.count <= length) {
             return true;
         }
-        else {
-            if (player.score > lastPlayerOnLeaderboard().score) {
-                return true
-            }
-            
-        }
-        return  false
+        
+//        Dette har samme sannhetstabell som else-if-en
+        return player.score > lastPlayerOnLeaderboard().score
+        
+//        else {
+//            if (player.score > lastPlayerOnLeaderboard().score) {
+//                return true
+//            }
+//            
+//        }
+//        return  false
     }
     
     /*Finds the last player on the leaderboard.
@@ -69,6 +72,10 @@ class LeaderboardModel {
     
     //fjerner en bestemt spiller fra leaderboard
     func removePlayerFromList(player: Player) {
+        
+//        Denne gjør det samme, men bruker Swift sine innebygde, forhåpentligvis raskere implementasjon :)
+//        self.leaderList.filter {$0 != player}
+        
         for var i = 0; i < leaderList.count; i++ {
             if (leaderList[i] == player) {
                 leaderList.removeAtIndex(i)
