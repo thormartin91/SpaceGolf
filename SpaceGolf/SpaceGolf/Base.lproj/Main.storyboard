@@ -31,6 +31,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="IeG-pG-ieu"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
@@ -70,7 +71,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="APb-TX-jIN" kind="show" id="Uof-s8-cXO"/>
+                                    <action selector="mainMenu:" destination="e86-TV-Bin" eventType="touchUpInside" id="t4I-d7-rQE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -233,13 +234,15 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9E-Va-DI1">
                                 <rect key="frame" x="37" y="143" width="167" height="493"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFU-VR-wie">
                                 <rect key="frame" x="203" y="143" width="172" height="493"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -254,7 +257,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                         </accessibility>
@@ -308,7 +311,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" backgroundImage="btn_start.png"/>
                                 <connections>
-                                    <segue destination="LVB-YS-i5n" kind="presentation" identifier="ShowGameScene" animates="NO" id="jR5-Qr-CA3"/>
+                                    <segue destination="LVB-YS-i5n" kind="show" identifier="ShowGameScene" id="jR5-Qr-CA3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfE-u7-59X">
@@ -367,7 +370,4 @@
         <image name="btn_settings.png" width="271" height="47"/>
         <image name="btn_start.png" width="271" height="47"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="kNB-RG-ngr"/>
-    </inferredMetricsTieBreakers>
 </document>

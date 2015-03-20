@@ -36,6 +36,10 @@ class PauseMenuViewController: UIViewController {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
+    @IBAction func mainMenu(sender: AnyObject) {
+        (self.presentingViewController as UINavigationController?)?.popToRootViewControllerAnimated(false)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     /** Fills out the current standings **/
     // TODO: When list ranges out of screen the scrolling of names and scores are not synced
     func currentScoreList() {
