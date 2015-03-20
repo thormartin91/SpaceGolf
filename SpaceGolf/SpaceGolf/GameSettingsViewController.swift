@@ -13,6 +13,8 @@ class GameSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do additional setup after loading the view
+        let bgnd = UIImage(named: "bgnd")
+        self.view.backgroundColor = UIColor(patternImage: bgnd!)
     }
     
     override func didReceiveMemoryWarning() {

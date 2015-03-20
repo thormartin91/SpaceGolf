@@ -19,6 +19,9 @@ class AddPlayersViewController: UIViewController {
         super.viewDidLoad()
         // Do additional setup after loading the view
         playerTextField.placeholder = "Enter name..."
+        
+        let bgnd = UIImage(named: "bgnd")
+        self.view.backgroundColor = UIColor(patternImage: bgnd!)
     }
     
     override func didReceiveMemoryWarning() {

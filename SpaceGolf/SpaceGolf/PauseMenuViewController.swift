@@ -20,6 +20,8 @@ class PauseMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let bgnd = UIImage(named: "bgnd.png")
+        self.view.backgroundColor = UIColor(patternImage: bgnd!)
         // Do additional setup after loading the view
         currentScoreList()
     }
