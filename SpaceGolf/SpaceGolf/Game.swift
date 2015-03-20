@@ -42,6 +42,8 @@ class Game {
     }
     
     func nextPlayer() -> Player? {
+        self.getCurrentPlayer()?.score++
+        
         if self.players.count == 0 || self.players.count == self.playersDone.count {
             return nil
         }
@@ -50,6 +52,7 @@ class Game {
         while contains(self.playersDone, nextPlayer) {
             nextPlayer = self.players[self.currentPlayer++]
         }
+        
         return nextPlayer
     }
     

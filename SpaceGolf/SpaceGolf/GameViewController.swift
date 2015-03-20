@@ -60,6 +60,7 @@ class GameViewController: UIViewController {
     }
     
     
+//    MARK: - This should probably be located in the game scene.
     func setPlayerLabel() { // TODO: Does not update roundbased
         if let player = game?.getCurrentPlayer() {
             currentPlayerLabel.text = player.name
