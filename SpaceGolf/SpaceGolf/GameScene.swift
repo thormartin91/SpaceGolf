@@ -26,14 +26,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var line = SKShapeNode();
     
-    var game : Game? {
+    var currentPlayerLabel : SKLabelNode = SKLabelNode()
+    
+    var game : Game?
+    var currentPlayer : Player? {
         didSet {
-//            for player in self.game!.players {
-//                self.addChild(player.ball)
-//            }
+            self.currentPlayerLabel.text = self.currentPlayer!.name
         }
     }
-    var currentPlayer : Player?
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -42,6 +42,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
 //        TODO: Should be a partog AddPlayerVC
         self.physicsWorld.contactDelegate = self
+        
+        self.currentPlayerLabel.position = CGPointMake(10, 10)
+        self.addChild(self.currentPlayerLabel)
         
         self.addPlanets()
         self.newRound()
@@ -158,7 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 return (nil,nil)
         }
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
