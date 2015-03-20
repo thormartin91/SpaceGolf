@@ -29,8 +29,6 @@ class GameViewController: UIViewController {
 
     var game : Game?
     
-    @IBOutlet weak var currentPlayerLabel: UILabel!
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -44,7 +42,6 @@ class GameViewController: UIViewController {
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .ResizeFill
         skView.presentScene(scene)
-        setPlayerLabel()
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -57,14 +54,6 @@ class GameViewController: UIViewController {
     
     override func supportedInterfaceOrientations() -> Int {
         return Int(UIInterfaceOrientationMask.LandscapeLeft.rawValue)
-    }
-    
-    
-//    MARK: - This should probably be located in the game scene.
-    func setPlayerLabel() { // TODO: Does not update roundbased
-        if let player = game?.getCurrentPlayer() {
-            currentPlayerLabel.text = player.name
-        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

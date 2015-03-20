@@ -43,8 +43,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        TODO: Should be a partog AddPlayerVC
         self.physicsWorld.contactDelegate = self
         
-        self.currentPlayerLabel.position = CGPointMake(10, 10)
+        self.currentPlayerLabel.position = CGPointMake(self.view!.frame.width/2, self.view!.frame.height-20)
         self.addChild(self.currentPlayerLabel)
+
         
         self.addPlanets()
         self.newRound()
