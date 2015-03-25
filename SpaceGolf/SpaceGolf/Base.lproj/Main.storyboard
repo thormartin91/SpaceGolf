@@ -125,8 +125,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uk2-bR-grA" userLabel="Play">
-                                <rect key="frame" x="445" y="299" width="206" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uk2-bR-grA" userLabel="Play">
+                                <rect key="frame" x="426" y="299" width="225" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="7YL-la-Qtl"/>
                                     <constraint firstAttribute="width" constant="206" id="xFf-Z0-AOd"/>
@@ -140,23 +140,22 @@
                                     <segue destination="vap-oK-lYg" kind="show" id="2Cu-rF-INf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKJ-OI-PdM">
-                                <rect key="frame" x="16" y="299" width="150" height="35"/>
-                                <color key="backgroundColor" red="0.69385875355113635" green="0.24548873200628743" blue="0.24350020848271167" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKJ-OI-PdM">
+                                <rect key="frame" x="16" y="299" width="175" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ov7-3B-ywO"/>
                                     <constraint firstAttribute="width" constant="150" id="sAs-6J-FKr"/>
                                 </constraints>
-                                <state key="normal" title="High Score">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" backgroundImage="btn_highscore.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="7Xl-z5-RPe" kind="show" id="T6W-OB-Zlg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjR-GR-Wcn" userLabel="Settings">
-                                <rect key="frame" x="174" y="299" width="150" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjR-GR-Wcn" userLabel="Settings">
+                                <rect key="frame" x="204" y="299" width="175" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="C8t-IS-tMH"/>
                                     <constraint firstAttribute="height" constant="35" id="SM3-aj-ER1"/>
@@ -410,6 +409,7 @@
     <resources>
         <image name="btn_add.png" width="41" height="47"/>
         <image name="btn_back.png" width="63" height="47"/>
+        <image name="btn_highscore.png" width="271" height="47"/>
         <image name="btn_mainmenu.png" width="271" height="47"/>
         <image name="btn_pause.png" width="41" height="47"/>
         <image name="btn_play.png" width="271" height="47"/>
