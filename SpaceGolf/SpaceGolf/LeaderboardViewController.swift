@@ -17,7 +17,7 @@ class LeaderboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         test()
-        customizeFont()
+        //customizeFont()
         addPlayersToHighScoreView()
         addScoreToScoreView()
         
@@ -47,12 +47,12 @@ class LeaderboardViewController: UIViewController {
     }
     
     //Her settes alle fontene
-    func customizeFont() {
-        highscoreView.font = UIFont(name: highscoreView.font.fontName, size: 20)
-        scoreView.font = UIFont(name: scoreView.font.fontName, size: 20)
-        //headerLabel.font = UIFont(name: scoreView.font.fontName, size: 40)
-        
-    }
+//    func customizeFont() {
+//        highscoreView.font = UIFont(name: "Space Comics", size: 12)
+//        scoreView.font = UIFont(name: "Space Comics", size: 12)
+//        //headerLabel.font = UIFont(name: scoreView.font.fontName, size: 40)
+//        
+//    }
     //Tekstfelt hvor poengsummen vises
     @IBOutlet weak var scoreView: UITextView!
     

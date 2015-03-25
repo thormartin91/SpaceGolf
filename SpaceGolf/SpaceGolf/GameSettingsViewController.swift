@@ -10,6 +10,8 @@ import UIKit
 
 class GameSettingsViewController: UIViewController {
     
+    var gameSounds = GameSounds()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do additional setup after loading the view
@@ -26,4 +28,18 @@ class GameSettingsViewController: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+
+    @IBAction func musicToggleSwitched(sender: AnyObject) {
+        
+        var musicSwitch = sender as UISwitch
+        
+        if(musicSwitch.on){
+            gameSounds.playBackgroundMusic()
+
+        }else{
+            gameSounds.pauseBackgroundMusic()
+        }
+        
+
+    }
 }

@@ -32,7 +32,7 @@ class AddPlayersViewController: UIViewController {
     @IBAction func addPlayerButton(sender: AnyObject) {
         if !playerTextField.text.isEmpty { // prevent from adding players without characters
             // update view with playername
-            playersTextView.text = playerTextField.text + "\n" + playersTextView.text
+            playersTextView.text = playerTextField.text.uppercaseString + "\n" + playersTextView.text
             // add player to game
             game.addPlayer(playerTextField.text)
             // clear textfield

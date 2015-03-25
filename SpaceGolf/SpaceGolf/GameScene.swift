@@ -31,7 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var game : Game?
     var currentPlayer : Player? {
         didSet {
-            self.currentPlayerLabel.text = self.currentPlayer!.name
+            self.currentPlayerLabel.text = self.currentPlayer!.name + ":\t" + "\(currentPlayer!.score)"
         }
     }
     
@@ -43,7 +43,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        TODO: Should be a partog AddPlayerVC
         self.physicsWorld.contactDelegate = self
         
-        self.currentPlayerLabel.position = CGPointMake(self.view!.frame.width/2, self.view!.frame.height-20)
+        self.currentPlayerLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode(rawValue: 1)!
+        self.currentPlayerLabel.position = CGPointMake(10, self.view!.frame.height-20)
+        self.currentPlayerLabel.fontName = "Space Comics"
+        self.currentPlayerLabel.fontSize = 12
         self.addChild(self.currentPlayerLabel)
 
         
@@ -130,7 +133,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var force = CGFloat(-5)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
-        Sound.playSoundWithName("hitBall", ofType: "mp3")
+        //Sound.playSoundWithName("hitBall", ofType: "mp3")
         currentPlayer!.ball.physicsBody?.applyImpulse(shootVector)
         self.nextPlayer()
     }
@@ -147,7 +150,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (ball != nil || planet != nil){
             if planet!.isInTheHole(ball!) {
                 
-                Sound.playSoundWithName("hitHole", ofType: "mp3")
+                //Sound.playSoundWithName("hitHole", ofType: "mp3")
                 
                 self.game?.playerIsDone(self.game!.playerForBall(ball!)!)
                 ball!.physicsBody?.dynamic = false

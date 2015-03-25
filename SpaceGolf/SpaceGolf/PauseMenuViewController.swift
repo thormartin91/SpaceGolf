@@ -16,7 +16,7 @@ class PauseMenuViewController: UIViewController {
     /** Reference to the TextView with player names **/
     @IBOutlet weak var currentScoreNames: UITextView!
     /** Reference to the TextView with splayer scores **/
-    @IBOutlet weak var currentScoreScores: UITextView!
+   // @IBOutlet weak var currentScoreScores: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +45,8 @@ class PauseMenuViewController: UIViewController {
     func currentScoreList() {
         if let players = game?.currentStandings() {
             for player in players {
-//                currentScoreNames.text = currentScoreNames.text + "\n" + player.name
-//                currentScoreScores.text = currentScoreScores.text + "\n" + "\(player.score)"
+            currentScoreNames.text = currentScoreNames.text + "\n" + player.name + "\t" + "\(player.score)"
+            //currentScoreScores.text = currentScoreScores.text + "\n" + "\(player.score)"
             }
         }
     }

@@ -20,7 +20,7 @@ class Player: GKLocalPlayer {
     init(id: Int, playerName: String){
         score = 0
         hits = 0
-        name = playerName
+        name = playerName.uppercaseString
         ball = Ball(mass: 1, ballType: normal, size: CGSize(width: 20, height: 20))
         self.id = id;
     }

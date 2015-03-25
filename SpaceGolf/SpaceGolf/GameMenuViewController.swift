@@ -12,12 +12,17 @@ import SpriteKit
 class GameMenuViewController: UIViewController {
     
     @IBOutlet weak var btn_play: UIButton!
+    
+    
+    var gameSounds = GameSounds()
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do additional setup after loading the view
         let spaceGolf = UIImage(named: "SpaceGolf.png")
+        gameSounds.playBackgroundMusic()
         self.view.backgroundColor = UIColor(patternImage: spaceGolf!)
         
     }
@@ -26,6 +31,16 @@ class GameMenuViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowSettings" {
+            println("Kom hit")
+            let settingsVC = segue.destinationViewController as GameSettingsViewController
+            settingsVC.gameSounds = gameSounds
+//            settingsVC.navigationController?.navigationBarHidden = true
+        }
+    }
+    
     
     
 }
