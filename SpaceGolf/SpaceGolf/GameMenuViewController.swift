@@ -32,7 +32,7 @@ class GameMenuViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowSettings" {
-            let settingsVC = segue.destinationViewController as GameSettingsViewController
+            let settingsVC = segue.destinationViewController as! GameSettingsViewController
             settingsVC.gameSounds = gameSounds
 //            settingsVC.navigationController?.navigationBarHidden = true
         }
