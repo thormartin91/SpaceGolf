@@ -161,11 +161,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball!.removeFromParent()
                 
                 if self.game!.roundIsDone() {
+<<<<<<< HEAD
                     self.newRound()// Vis jonas' skjerm
+=======
+                    let fvc = ((UIApplication.sharedApplication().delegate as AppDelegate).window!.rootViewController! as UINavigationController).viewControllers.last!
+                    fvc.performSegueWithIdentifier("ShowGameFinished", sender: nil)
+                    //Kall på gamefinished screen
+>>>>>>> iss120
                 }
             }
         }
     }
+    
+
     
     
     func ballDidHitPlanet(contact: SKPhysicsContact) -> (Ball?, Planet?){
@@ -186,4 +194,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+
 }

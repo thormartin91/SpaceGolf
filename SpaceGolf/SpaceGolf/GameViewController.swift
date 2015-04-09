@@ -66,6 +66,11 @@ class GameViewController: UIViewController {
             pauseVC.game = self.game
             pauseVC.navigationController?.navigationBarHidden = true
         }
+            
+        else if segue.identifier == "ShowGameFinished" {
+            let pauseVC = segue.destinationViewController as GameFinishedViewController
+            pauseVC.game = self.game
+            pauseVC.navigationController?.navigationBarHidden = true
+        }
     }
-    
 }
