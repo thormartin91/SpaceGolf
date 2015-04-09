@@ -15,14 +15,14 @@ enum BallType : Int{
 
 class Ball : SKSpriteNode {
     
-    var ballType = normal
+    var ballType = BallType.normal
 
     
-    convenience init(mass: Int, ballType: Int, size: CGSize) {
+    convenience init(mass: Int, ballType: BallType, size: CGSize) {
         
         self.init();
-
         self.ballType = ballType
+//        self.ballType = ballType
         self.size = size
         texture = SKTexture(imageNamed: "ball.png")
         physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)

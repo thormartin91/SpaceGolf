@@ -34,7 +34,7 @@ class GameSettingsViewController: UIViewController {
 
     @IBAction func musicToggleSwitched(sender: AnyObject) {
         
-        var musicSwitch = sender as UISwitch
+        var musicSwitch = sender as! UISwitch
         
         if(musicSwitch.on){
             gameSounds!.resumeBackgroundMusic()

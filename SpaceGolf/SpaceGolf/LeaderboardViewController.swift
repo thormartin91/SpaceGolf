@@ -74,7 +74,7 @@ class LeaderboardViewController: UIViewController {
         let player5 = Player(id: 5, playerName: "Øyvind")
         let player6 = Player(id: 6, playerName: "Robin")
         
-        player1.changeScore(100000000000)
+        player1.changeScore(100000)
         player4.changeScore(50000)
         player3.changeScore(2000)
         player5.changeScore(200)
