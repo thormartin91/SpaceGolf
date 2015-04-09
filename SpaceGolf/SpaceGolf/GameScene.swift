@@ -157,7 +157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball!.removeFromParent()
                 
                 if self.game!.roundIsDone() {
-                    self.newRound()
+                    self.newRound()// Vis jonas' skjerm
                 }
             }
         }
@@ -167,7 +167,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func ballDidHitPlanet(contact: SKPhysicsContact) -> (Ball?, Planet?){
         if (contact.bodyA.categoryBitMask == PhysicsCategory.Ball &&
             contact.bodyB.categoryBitMask == PhysicsCategory.Planet){
-                
+
                 return (contact.bodyA.node as? Ball, contact.bodyB.node as? Planet)
         } else if (contact.bodyB.categoryBitMask == PhysicsCategory.Ball &&
                    contact.bodyA.categoryBitMask == PhysicsCategory.Planet){
