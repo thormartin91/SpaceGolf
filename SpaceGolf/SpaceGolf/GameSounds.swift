@@ -12,8 +12,6 @@ import AVFoundation
 class GameSounds {
     
     var audioPlayer = AVAudioPlayer()
-    var currentBackroundMusicTime : NSTimeInterval = 0.0
-
     
     func playSoundWithName(name: String, ofType type: String) {
         let soundURL = NSURL(fileURLWithPath:(NSBundle.mainBundle().pathForResource(name, ofType: type))!)
@@ -33,9 +31,8 @@ class GameSounds {
         
         
         audioPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
-        audioPlayer.prepareToPlay()
         audioPlayer.play()
-    
+        audioPlayer.numberOfLoops = -1
     }
     
     
@@ -48,20 +45,33 @@ class GameSounds {
     }
     
     func pauseBackgroundMusic(){
-        
-        
-        currentBackroundMusicTime = audioPlayer.currentTime
-
         audioPlayer.pause()
     }
     
     func resumeBackgroundMusic(){
-        println(currentBackroundMusicTime)
-        audioPlayer.prepareToPlay()
-        audioPlayer.playAtTime(currentBackroundMusicTime)
+        audioPlayer.play()
     }
    
-    
+    class func playSoundWithName(name: String, ofType type: String) {
+        let path = NSBundle.mainBundle().pathForResource(name, ofType: type)
+        
+        if path == nil {
+            return
+        }
+        
+        
+        let pathURL = NSURL(fileURLWithPath: path!)
+        
+        var audioEffect : SystemSoundID = SystemSoundID()
+
+        AudioServicesCreateSystemSoundID(pathURL!, &audioEffect)
+        AudioServicesPlaySystemSound(audioEffect)
+
+//        TODO: Should dispose of sound, but not sure if this solution is possible in Swift
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (30 * NSEC_PER_SEC) as Int64), dispatch_get_main_queue()) { () -> Void in
+//        AudioServicesDisposeSystemSoundID(audioEffect)
+//        }
+    }
     
     
 }

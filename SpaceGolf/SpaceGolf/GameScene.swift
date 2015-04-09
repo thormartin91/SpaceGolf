@@ -133,7 +133,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var force = CGFloat(-5)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
-        //Sound.playSoundWithName("hitBall", ofType: "mp3")
+        GameSounds.playSoundWithName("hitBall", ofType: "mp3")
         currentPlayer!.ball.physicsBody?.applyImpulse(shootVector)
         self.nextPlayer()
     }

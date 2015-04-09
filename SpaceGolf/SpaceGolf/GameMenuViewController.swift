@@ -15,8 +15,6 @@ class GameMenuViewController: UIViewController {
     
     
     var gameSounds = GameSounds()
-
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +32,6 @@ class GameMenuViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowSettings" {
-            println("Kom hit")
             let settingsVC = segue.destinationViewController as GameSettingsViewController
             settingsVC.gameSounds = gameSounds
 //            settingsVC.navigationController?.navigationBarHidden = true

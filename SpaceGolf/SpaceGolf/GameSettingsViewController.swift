@@ -10,7 +10,11 @@ import UIKit
 
 class GameSettingsViewController: UIViewController {
     
-    var gameSounds = GameSounds()
+    var gameSounds : GameSounds? {
+        didSet {
+            println("Yay")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +31,16 @@ class GameSettingsViewController: UIViewController {
     @IBAction func back(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    
 
     @IBAction func musicToggleSwitched(sender: AnyObject) {
         
         var musicSwitch = sender as UISwitch
         
         if(musicSwitch.on){
-            gameSounds.playBackgroundMusic()
+            gameSounds!.resumeBackgroundMusic()
 
         }else{
-            gameSounds.pauseBackgroundMusic()
+            gameSounds!.pauseBackgroundMusic()
         }
         
 
