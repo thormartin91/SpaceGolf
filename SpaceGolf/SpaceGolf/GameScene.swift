@@ -157,11 +157,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball!.removeFromParent()
                 
                 if self.game!.roundIsDone() {
-                    self.newRound()
+                    let fvc = ((UIApplication.sharedApplication().delegate as AppDelegate).window!.rootViewController! as UINavigationController).viewControllers.last!
+                    fvc.performSegueWithIdentifier("ShowGameFinished", sender: nil)
+                    //Kall på gamefinished screen
                 }
             }
         }
     }
+    
+
     
     
     func ballDidHitPlanet(contact: SKPhysicsContact) -> (Ball?, Planet?){
@@ -182,4 +186,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+
 }
