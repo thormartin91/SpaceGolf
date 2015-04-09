@@ -48,7 +48,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.currentPlayerLabel.fontName = "Space Comics"
         self.currentPlayerLabel.fontSize = 12
         self.addChild(self.currentPlayerLabel)
-
+        
+        let boxMargin : CGFloat = 400
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(-boxMargin, -boxMargin, self.frame.width+boxMargin*2, self.frame.height+boxMargin*2))
+        
         
         self.addPlanets()
         self.newRound()
@@ -88,9 +91,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.planets = []
         
 //        Add planets
+        let planetNames = ["RedPlanet", "GreenPlanet", "BluePlanet"]
         let positions : [(CGFloat, CGFloat)] = [(100,200), (400,100), (500,300)]
-        for pos in positions {
-            let planet = Planet(texture: SKTexture(imageNamed: "RedPlanet"), radius: 50, fieldStrength: 2)
+        for (i, pos) in enumerate(positions) {
+            let planet = Planet(texture: SKTexture(imageNamed: planetNames[i%planetNames.count]), radius: 50, fieldStrength: 2)
             planet.position = CGPointMake(pos.0, pos.1)
             self.planets.append(planet)
             self.addChild(planet)
