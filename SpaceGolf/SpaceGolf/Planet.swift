@@ -66,7 +66,7 @@ class Planet: SKSpriteNode {
     }
     
     func addHole() {
-        self.holeAngle = (Float(arc4random())/Float(UINT32_MAX)) * 2.0 * Float(M_PI)
+        self.holeAngle = 0 //(Float(arc4random())/Float(UINT32_MAX)) * 2.0 * Float(M_PI)
         
         self.holeSpriteNode?.removeFromParent()
         
