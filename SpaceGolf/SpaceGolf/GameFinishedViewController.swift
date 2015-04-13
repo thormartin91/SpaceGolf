@@ -24,6 +24,7 @@ class GameFinishedViewController: UIViewController {
         super.viewDidLoad()
         winningPlayer = game!.currentStandings().first
     
+        addResultsToHighscore()
         
         //Setter fonten til player won skriften
         winnerLabel.text = "\(winningPlayer.name) WON!"
@@ -34,6 +35,25 @@ class GameFinishedViewController: UIViewController {
         winnerScoreLabel.text = "SHOTS: \(winningPlayer.score)"
         winnerScoreLabel.textColor = UIColor.greenColor()
         winnerScoreLabel.font = UIFont(name: "Space Comics", size: 30)
+    }
+    
+    func addResultsToHighscore() {
+        
+        var newScoreDict = [String: Int]()
+        if let currentScoreDict = LocalDataHandler.getObjectFromFile(LocalDataFile.PlayerData, key: LocalDataKey.HighScore) as? [String: Int] {
+            newScoreDict = currentScoreDict
+        }
+        
+        for player in self.game!.players {
+            if let oldScore = newScoreDict[player.name] {
+                if oldScore > player.score {
+                    continue
+                }
+            }
+            newScoreDict[player.name] = player.score
+        }
+        
+        LocalDataHandler.setObjectForFile(LocalDataFile.PlayerData, object: newScoreDict, key: LocalDataKey.HighScore)
     }
    
     @IBAction func goToMainMenu(sender: AnyObject) {
