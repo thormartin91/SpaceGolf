@@ -29,6 +29,8 @@ class GameViewController: UIViewController {
 
     var game : Game?
     
+    var gameSounds : GameSounds?
+    
     
     
     override func viewDidLoad() {
@@ -39,6 +41,7 @@ class GameViewController: UIViewController {
         
         let scene = GameScene(size: self.view.bounds.size)
         scene.game = self.game
+        scene.gameSounds = gameSounds
         
         let skView = view as! SKView
         skView.showsFPS = false

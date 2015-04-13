@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QuY-tJ-lLk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QuY-tJ-lLk">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -187,7 +187,7 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vap-oK-lYg" kind="show" id="2Cu-rF-INf"/>
+                                    <segue destination="vap-oK-lYg" kind="show" identifier="ShowAddPlayers" id="2Cu-rF-INf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKJ-OI-PdM">
@@ -268,6 +268,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t25-83-eHJ">
                                 <rect key="frame" x="412" y="112" width="51" height="31"/>
+                                <connections>
+                                    <action selector="soundEffectsToggleSwitched:" destination="9yZ-C4-Ev9" eventType="valueChanged" id="lDa-Gt-3wx"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sound Effects" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clh-eq-uat">
                                 <rect key="frame" x="495" y="117" width="140" height="21"/>
@@ -299,6 +302,10 @@
                     <navigationItem key="navigationItem" title="Settings" id="RmF-n9-EO1"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="736" height="414"/>
+                    <connections>
+                        <outlet property="backgroundMusicSwitch" destination="nhd-5i-Q2a" id="b5N-hn-TVF"/>
+                        <outlet property="soundEffectsSwitch" destination="t25-83-eHJ" id="abx-4d-KrK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGV-DA-Pmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
