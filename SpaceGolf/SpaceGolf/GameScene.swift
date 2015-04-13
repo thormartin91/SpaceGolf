@@ -21,7 +21,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var startPoint = CGPoint()
     var endPoint = CGPoint()
-
+    
+    var gameSounds : GameSounds?
     var planets : [Planet] = []
     
     var line = SKShapeNode();
@@ -48,7 +49,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.currentPlayerLabel.fontName = "Space Comics"
         self.currentPlayerLabel.fontSize = 12
         self.addChild(self.currentPlayerLabel)
-
+        
+        let boxMargin : CGFloat = 400
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(-boxMargin, -boxMargin, self.frame.width+boxMargin*2, self.frame.height+boxMargin*2))
+        
         
         self.addPlanets()
         self.newRound()
@@ -88,9 +92,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.planets = []
         
 //        Add planets
+        let planetNames = ["RedPlanet", "GreenPlanet", "BluePlanet"]
         let positions : [(CGFloat, CGFloat)] = [(100,200), (400,100), (500,300)]
-        for pos in positions {
-            let planet = Planet(texture: SKTexture(imageNamed: "RedPlanet"), radius: 50, fieldStrength: 2)
+        for (i, pos) in enumerate(positions) {
+            let planet = Planet(texture: SKTexture(imageNamed: planetNames[i%planetNames.count]), radius: 50, fieldStrength: 2)
             planet.position = CGPointMake(pos.0, pos.1)
             self.planets.append(planet)
             self.addChild(planet)
@@ -133,7 +138,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var force = CGFloat(-5)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
-        GameSounds.playSoundWithName("hitBall", ofType: "mp3")
+        gameSounds!.playEffectSoundWithName("hitBall", ofType: "mp3")
         currentPlayer!.ball.physicsBody?.applyImpulse(shootVector)
         self.nextPlayer()
     }
@@ -150,18 +155,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (ball != nil || planet != nil){
             if planet!.isInTheHole(ball!) {
                 
-                //Sound.playSoundWithName("hitHole", ofType: "mp3")
+                gameSounds!.playEffectSoundWithName("hitHole", ofType: "mp3")
                 
                 self.game?.playerIsDone(self.game!.playerForBall(ball!)!)
                 ball!.physicsBody?.dynamic = false
                 ball!.removeFromParent()
                 
                 if self.game!.roundIsDone() {
-                    self.newRound()// Vis jonas' skjerm
+                    let fvc = ((UIApplication.sharedApplication().delegate as! AppDelegate).window!.rootViewController! as! UINavigationController).viewControllers.last!
+                    fvc.performSegueWithIdentifier("ShowGameFinished", sender: nil)
+                    //Kall på gamefinished screen
                 }
             }
         }
     }
+    
+
     
     
     func ballDidHitPlanet(contact: SKPhysicsContact) -> (Ball?, Planet?){
@@ -182,4 +191,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+
 }

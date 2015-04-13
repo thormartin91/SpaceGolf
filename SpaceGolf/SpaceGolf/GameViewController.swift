@@ -29,6 +29,8 @@ class GameViewController: UIViewController {
 
     var game : Game?
     
+    var gameSounds : GameSounds?
+    
     
     
     override func viewDidLoad() {
@@ -39,10 +41,11 @@ class GameViewController: UIViewController {
         
         let scene = GameScene(size: self.view.bounds.size)
         scene.game = self.game
+        scene.gameSounds = gameSounds
         
         let skView = view as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        skView.showsFPS = false
+        skView.showsNodeCount = false
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .ResizeFill
         skView.presentScene(scene)
@@ -66,6 +69,11 @@ class GameViewController: UIViewController {
             pauseVC.game = self.game
             pauseVC.navigationController?.navigationBarHidden = true
         }
+            
+        else if segue.identifier == "ShowGameFinished" {
+            let pauseVC = segue.destinationViewController as! GameFinishedViewController
+            pauseVC.game = self.game
+            pauseVC.navigationController?.navigationBarHidden = true
+        }
     }
-    
 }
