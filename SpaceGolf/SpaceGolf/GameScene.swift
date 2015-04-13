@@ -43,6 +43,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        TODO: Should be a partog AddPlayerVC
         self.physicsWorld.contactDelegate = self
         
+        
         self.currentPlayerLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode(rawValue: 1)!
         self.currentPlayerLabel.position = CGPointMake(10, self.view!.frame.height-20)
         self.currentPlayerLabel.fontName = "Space Comics"
@@ -52,9 +53,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let boxMargin : CGFloat = 400
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(-boxMargin, -boxMargin, self.frame.width+boxMargin*2, self.frame.height+boxMargin*2))
         
+        let backgroundSprite = SKSpriteNode(imageNamed: "gameBackground")
+        backgroundSprite.position = CGPointMake(self.size.width/2, self.size.height/2)
+        self.insertChild(backgroundSprite, atIndex: 0)
+        backgroundSprite.zPosition = -1
         
         self.addPlanets()
         self.newRound()
+        
+        self.addChild(self.line)
+        self.line.zPosition = 10
     }
 
 //    TODO: Should update map
@@ -100,13 +108,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(planet)
         }
         
-        self.planets.last?.state = .Hole
+        self.planets[Int(arc4random())%self.planets.count].state = .Hole
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
-        self.addChild(line)
         for touch: AnyObject in touches {
             startPoint = touch.locationInNode(self)
         }
@@ -126,13 +133,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        line.removeFromParent()
-        line = SKShapeNode()
+        let emptyPath = CGPathCreateMutable()
+        
+        CGPathMoveToPoint(emptyPath, nil, currentPlayer!.ball.position.x, currentPlayer!.ball.position.y)
+        
+        line.path = emptyPath
         
 //        Preven player from shooting before te ball is relatively static
-        if self.sizeOfVector(currentPlayer!.ball.physicsBody!.velocity) > 4 {
-            return
-        }
+//        if self.sizeOfVector(currentPlayer!.ball.physicsBody!.velocity) > 4 {
+//            return
+//        }
         
         var force = CGFloat(-5)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
@@ -161,7 +171,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball!.removeFromParent()
                 
                 if self.game!.roundIsDone() {
-                    let fvc = ((UIApplication.sharedApplication().delegate as! AppDelegate).window!.rootViewController! as! UINavigationController).viewControllers.last!
+                    let fvc = ((UIApplication.sharedApplication().delegate as! AppDelegate).window!.rootViewController! as! UINavigationController).viewControllers.last! as! GameViewController
                     fvc.performSegueWithIdentifier("ShowGameFinished", sender: nil)
                     //Kall på gamefinished screen
                 }

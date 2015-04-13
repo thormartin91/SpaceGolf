@@ -66,12 +66,13 @@ class Planet: SKSpriteNode {
     }
     
     func addHole() {
+        self.holeAngle = (Float(arc4random())/Float(UINT32_MAX)) * 2.0 * Float(M_PI)
+        
         self.holeSpriteNode?.removeFromParent()
         
         self.holeSpriteNode = SKSpriteNode(imageNamed: "hole")
         self.holeSpriteNode?.anchorPoint = CGPointMake(0.5, 0.2)
-        println(CGFloat(sin(self.holeAngle)*self.radius))
-        println(CGFloat(cos(self.holeAngle)*self.radius))
+
         self.holeSpriteNode!.position = CGPointMake(-CGFloat(cos(self.holeAngle)*self.radius), -CGFloat(sin(self.holeAngle)*self.radius))
         
         self.addChild(self.holeSpriteNode!)
