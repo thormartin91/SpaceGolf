@@ -57,7 +57,7 @@ class Game {
     }
     
     func currentStandings() -> [Player] {
-        return sorted(self.players) {$0.score > $1.score}
+        return sorted(self.players) {$0.score < $1.score}
     }
     
     func roundIsDone() -> Bool {
