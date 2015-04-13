@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QuY-tJ-lLk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QuY-tJ-lLk">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -32,7 +32,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pd-Bl-AC3">
                                 <rect key="frame" x="622" y="2" width="43" height="30"/>
-                                <state key="normal" backgroundImage="btn_pause.png">
+                                <state key="normal" backgroundImage="btn_pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -65,7 +65,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdm-a6-hzL">
                                 <rect key="frame" x="230" y="54" width="206" height="30"/>
-                                <state key="normal" backgroundImage="btn_resume.png">
+                                <state key="normal" backgroundImage="btn_resume">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -74,7 +74,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3a-Wb-qXk">
                                 <rect key="frame" x="230" y="101" width="206" height="30"/>
-                                <state key="normal" backgroundImage="btn_mainmenu.png">
+                                <state key="normal" backgroundImage="btn_mainmenu">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -132,7 +132,7 @@
                                     <constraint firstAttribute="width" constant="206" id="xFf-Z0-AOd"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" backgroundImage="btn_play.png">
+                                <state key="normal" backgroundImage="btn_play">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -146,7 +146,7 @@
                                     <constraint firstAttribute="height" constant="35" id="ov7-3B-ywO"/>
                                     <constraint firstAttribute="width" constant="150" id="sAs-6J-FKr"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="btn_highscore.png">
+                                <state key="normal" backgroundImage="btn_highscore">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -161,7 +161,7 @@
                                     <constraint firstAttribute="height" constant="35" id="SM3-aj-ER1"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" backgroundImage="btn_settings.png">
+                                <state key="normal" backgroundImage="btn_settings">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -228,7 +228,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ix-X8-zxy">
                                 <rect key="frame" x="16" y="8" width="46" height="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" backgroundImage="btn_back.png">
+                                <state key="normal" backgroundImage="btn_back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -283,7 +283,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgy-pN-ost">
                                 <rect key="frame" x="16" y="8" width="46" height="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" backgroundImage="btn_back.png">
+                                <state key="normal" backgroundImage="btn_back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -334,7 +334,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mj-4a-Wac">
                                 <rect key="frame" x="478" y="63" width="30" height="30"/>
-                                <state key="normal" backgroundImage="btn_add.png">
+                                <state key="normal" backgroundImage="btn_add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -350,7 +350,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHP-wT-9Lw">
                                 <rect key="frame" x="230" y="296" width="206" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" backgroundImage="btn_start.png"/>
+                                <state key="normal" backgroundImage="btn_start"/>
                                 <connections>
                                     <segue destination="LVB-YS-i5n" kind="show" identifier="ShowGameScene" id="jR5-Qr-CA3"/>
                                 </connections>
@@ -358,7 +358,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfE-u7-59X">
                                 <rect key="frame" x="16" y="8" width="46" height="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" backgroundImage="btn_back.png">
+                                <state key="normal" backgroundImage="btn_back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -410,14 +410,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn_add.png" width="41" height="47"/>
-        <image name="btn_back.png" width="63" height="47"/>
-        <image name="btn_highscore.png" width="271" height="47"/>
-        <image name="btn_mainmenu.png" width="271" height="47"/>
-        <image name="btn_pause.png" width="41" height="47"/>
-        <image name="btn_play.png" width="271" height="47"/>
-        <image name="btn_resume.png" width="271" height="47"/>
-        <image name="btn_settings.png" width="271" height="47"/>
-        <image name="btn_start.png" width="271" height="47"/>
+        <image name="btn_add" width="41" height="47"/>
+        <image name="btn_back" width="63" height="47"/>
+        <image name="btn_highscore" width="271" height="47"/>
+        <image name="btn_mainmenu" width="271" height="47"/>
+        <image name="btn_pause" width="41" height="47"/>
+        <image name="btn_play" width="271" height="47"/>
+        <image name="btn_resume" width="271" height="47"/>
+        <image name="btn_settings" width="271" height="47"/>
+        <image name="btn_start" width="271" height="47"/>
     </resources>
 </document>
