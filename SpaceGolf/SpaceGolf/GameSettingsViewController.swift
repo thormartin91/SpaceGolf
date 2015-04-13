@@ -10,9 +10,12 @@ import UIKit
 
 class GameSettingsViewController: UIViewController {
     
+    @IBOutlet weak var backgroundMusicSwitch: UISwitch!
+    @IBOutlet weak var soundEffectsSwitch: UISwitch!
+    
     var gameSounds : GameSounds? {
         didSet {
-            println("Yay")
+//            println("Yay")
         }
     }
     
@@ -21,6 +24,17 @@ class GameSettingsViewController: UIViewController {
         // Do additional setup after loading the view
         let bgnd = UIImage(named: "bgnd")
         self.view.backgroundColor = UIColor(patternImage: bgnd!)
+        
+        
+        if(gameSounds?.isBackgroundMusicOn == false){
+            backgroundMusicSwitch.on = false
+        }
+        
+        if(gameSounds?.isMusicEffectsOn == false){
+            backgroundMusicSwitch.on = false
+        }
+
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,17 +46,31 @@ class GameSettingsViewController: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
+    @IBAction func soundEffectsToggleSwitched(sender: AnyObject) {
+
+        var toggleSwitch = sender as UISwitch
+        
+        if(toggleSwitch.on){
+            gameSounds!.resumeBackgroundMusic()
+        }else{
+            gameSounds!.pauseBackgroundMusic()
+        }
+
+
+    }
+
     @IBAction func musicToggleSwitched(sender: AnyObject) {
         
         var musicSwitch = sender as UISwitch
         
         if(musicSwitch.on){
-            gameSounds!.resumeBackgroundMusic()
-
+            gameSounds!.muteSoundEffects()
         }else{
-            gameSounds!.pauseBackgroundMusic()
+            gameSounds!.unMuteSoundEffects()
         }
         
-
     }
+
+
+
 }
