@@ -12,11 +12,18 @@ import AVFoundation
 class GameSounds {
     
     var audioPlayer = AVAudioPlayer()
+    var isBackgroundMusicOn : Bool
+    var isMusicEffectsOn : Bool
+
+    init(){
+        isMusicEffectsOn = true
+        isBackgroundMusicOn = true
+        
+    }
+    
     
     func playSoundWithName(name: String, ofType type: String) {
         let soundURL = NSURL(fileURLWithPath:(NSBundle.mainBundle().pathForResource(name, ofType: type))!)
-        
-        
         
         if soundURL == nil {
             return
@@ -33,39 +40,64 @@ class GameSounds {
         audioPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
         audioPlayer.play()
         audioPlayer.numberOfLoops = -1
+
     }
     
     
     func playBackgroundMusic(){
         playSoundWithName("music", ofType: "mp3")
+        isBackgroundMusicOn = true
+
     }
     
     func stopBackgroundMusic(){
         audioPlayer.stop()
+        isBackgroundMusicOn = false
+
     }
     
     func pauseBackgroundMusic(){
         audioPlayer.pause()
+        isBackgroundMusicOn = false
+
     }
     
     func resumeBackgroundMusic(){
         audioPlayer.play()
+        isBackgroundMusicOn = true
+
+    }
+    
+    func unMuteSoundEffects(){
+        isMusicEffectsOn = true
+
+    }
+    
+    func muteSoundEffects(){
+        isMusicEffectsOn = false
+
     }
    
-    class func playSoundWithName(name: String, ofType type: String) {
-        let path = NSBundle.mainBundle().pathForResource(name, ofType: type)
+    func playEffectSoundWithName(name: String, ofType type: String) {
         
-        if path == nil {
-            return
+        
+        if(isMusicEffectsOn == true){
+            let path = NSBundle.mainBundle().pathForResource(name, ofType: type)
+            
+            if path == nil {
+                return
+            }
+            
+            
+            let pathURL = NSURL(fileURLWithPath: path!)
+            
+            var audioEffect : SystemSoundID = SystemSoundID()
+            
+            AudioServicesCreateSystemSoundID(pathURL!, &audioEffect)
+            AudioServicesPlaySystemSound(audioEffect)
         }
-        
-        
-        let pathURL = NSURL(fileURLWithPath: path!)
-        
-        var audioEffect : SystemSoundID = SystemSoundID()
 
-        AudioServicesCreateSystemSoundID(pathURL!, &audioEffect)
-        AudioServicesPlaySystemSound(audioEffect)
+        
 
 //        TODO: Should dispose of sound, but not sure if this solution is possible in Swift
 //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (30 * NSEC_PER_SEC) as Int64), dispatch_get_main_queue()) { () -> Void in

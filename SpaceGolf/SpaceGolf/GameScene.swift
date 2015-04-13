@@ -21,7 +21,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var startPoint = CGPoint()
     var endPoint = CGPoint()
-
+    
+    var gameSounds : GameSounds?
     var planets : [Planet] = []
     
     var line = SKShapeNode();
@@ -147,7 +148,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var force = CGFloat(-5)
         var shootVector = CGVectorMake(force*(endPoint.x - startPoint.x),force*(endPoint.y - startPoint.y))
         
-        GameSounds.playSoundWithName("hitBall", ofType: "mp3")
+        gameSounds!.playEffectSoundWithName("hitBall", ofType: "mp3")
         currentPlayer!.ball.physicsBody?.applyImpulse(shootVector)
         self.nextPlayer()
     }
@@ -164,7 +165,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (ball != nil || planet != nil){
             if planet!.isInTheHole(ball!) {
                 
-                //Sound.playSoundWithName("hitHole", ofType: "mp3")
+                gameSounds!.playEffectSoundWithName("hitHole", ofType: "mp3")
                 
                 self.game?.playerIsDone(self.game!.playerForBall(ball!)!)
                 ball!.physicsBody?.dynamic = false
