@@ -78,7 +78,7 @@ class GameSounds {
 
     }
    
-    class func playSoundWithName(name: String, ofType type: String) {
+    func playEffectSoundWithName(name: String, ofType type: String) {
         
         
         if(isMusicEffectsOn == true){

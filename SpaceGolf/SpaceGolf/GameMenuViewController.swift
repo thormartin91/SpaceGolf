@@ -35,6 +35,9 @@ class GameMenuViewController: UIViewController {
             let settingsVC = segue.destinationViewController as! GameSettingsViewController
             settingsVC.gameSounds = gameSounds
 //            settingsVC.navigationController?.navigationBarHidden = true
+        }else if segue.identifier == "ShowAddPlayers" {
+            let addPlayersVC = segue.destinationViewController as! AddPlayersViewController
+            addPlayersVC.gameSounds = gameSounds
         }
     }
     

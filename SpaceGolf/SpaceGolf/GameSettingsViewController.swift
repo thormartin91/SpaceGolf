@@ -24,14 +24,14 @@ class GameSettingsViewController: UIViewController {
         // Do additional setup after loading the view
         let bgnd = UIImage(named: "bgnd")
         self.view.backgroundColor = UIColor(patternImage: bgnd!)
-        
+
         
         if(gameSounds?.isBackgroundMusicOn == false){
             backgroundMusicSwitch.on = false
         }
         
         if(gameSounds?.isMusicEffectsOn == false){
-            backgroundMusicSwitch.on = false
+            soundEffectsSwitch.on = false
         }
 
         
@@ -48,12 +48,13 @@ class GameSettingsViewController: UIViewController {
 
     @IBAction func soundEffectsToggleSwitched(sender: AnyObject) {
 
-        var toggleSwitch = sender as UISwitch
         
+        var toggleSwitch = sender as! UISwitch
+    
         if(toggleSwitch.on){
-            gameSounds!.resumeBackgroundMusic()
+            gameSounds!.unMuteSoundEffects()
         }else{
-            gameSounds!.pauseBackgroundMusic()
+            gameSounds!.muteSoundEffects()
         }
 
 
@@ -64,9 +65,9 @@ class GameSettingsViewController: UIViewController {
         var musicSwitch = sender as! UISwitch
         
         if(musicSwitch.on){
-            gameSounds!.muteSoundEffects()
+            gameSounds!.resumeBackgroundMusic()
         }else{
-            gameSounds!.unMuteSoundEffects()
+            gameSounds!.pauseBackgroundMusic()
         }
         
     }

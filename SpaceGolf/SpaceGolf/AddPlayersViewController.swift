@@ -14,6 +14,7 @@ class AddPlayersViewController: UIViewController {
     @IBOutlet weak var playerTextField: UITextField!
     @IBOutlet weak var playersTextView: UITextView!
     var game = Game()
+    var gameSounds : GameSounds?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,9 @@ class AddPlayersViewController: UIViewController {
         if segue.identifier == "ShowGameScene" {
             let gameVC = segue.destinationViewController as! GameViewController
             gameVC.game = self.game
+            gameVC.gameSounds = gameSounds
             gameVC.navigationController?.navigationBarHidden = true
+            
         }
     }
 }
