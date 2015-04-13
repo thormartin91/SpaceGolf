@@ -37,7 +37,7 @@ class PauseMenuViewController: UIViewController {
     }
     
     @IBAction func mainMenu(sender: AnyObject) {
-        (self.presentingViewController as UINavigationController?)?.popToRootViewControllerAnimated(false)
+        (self.presentingViewController as! UINavigationController?)?.popToRootViewControllerAnimated(false)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     /** Fills out the current standings **/

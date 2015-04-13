@@ -54,7 +54,7 @@ class AddPlayersViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowGameScene" {
-            let gameVC = segue.destinationViewController as GameViewController
+            let gameVC = segue.destinationViewController as! GameViewController
             gameVC.game = self.game
             gameVC.navigationController?.navigationBarHidden = true
         }

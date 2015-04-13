@@ -19,14 +19,24 @@ enum PlanetState {
 
 class Planet: SKSpriteNode {
 
-    var state : PlanetState = .Normal
+    var state : PlanetState = .Normal {
+        didSet {
+            if self.state == .Hole {
+                self.addHole()
+            } else {
+                self.holeSpriteNode?.removeFromParent()
+            }
+        }
+    }
     
     var radius : Float {
         return Float(self.size.height) / 2.0
     }
     
+    var holeSpriteNode : SKSpriteNode?
+    
     var holeRadius : Float = 10.0
-    var holeAngle : Float = 0
+    var holeAngle : Float = 3
     
     let gravityField : SKFieldNode = SKFieldNode.radialGravityField()
     
@@ -53,6 +63,19 @@ class Planet: SKSpriteNode {
  
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addHole() {
+        self.holeSpriteNode?.removeFromParent()
+        
+        self.holeSpriteNode = SKSpriteNode(imageNamed: "hole")
+        self.holeSpriteNode?.anchorPoint = CGPointMake(0.5, 0.2)
+        println(CGFloat(sin(self.holeAngle)*self.radius))
+        println(CGFloat(cos(self.holeAngle)*self.radius))
+        self.holeSpriteNode!.position = CGPointMake(-CGFloat(cos(self.holeAngle)*self.radius), -CGFloat(sin(self.holeAngle)*self.radius))
+        
+        self.addChild(self.holeSpriteNode!)
+        self.holeSpriteNode?.zRotation = CGFloat(self.holeAngle) + CGFloat(M_PI_2)
     }
     
     

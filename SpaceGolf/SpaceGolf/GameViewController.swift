@@ -11,12 +11,12 @@ import SpriteKit
 
 extension SKNode {
     class func unarchiveFromFile(file : NSString) -> SKNode? {
-        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
+        if let path = NSBundle.mainBundle().pathForResource(file as String, ofType: "sks") {
             var sceneData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil)!
             var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
             
             archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as GameScene
+            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! GameScene
             archiver.finishDecoding()
             return scene
         } else {
@@ -40,9 +40,9 @@ class GameViewController: UIViewController {
         let scene = GameScene(size: self.view.bounds.size)
         scene.game = self.game
         
-        let skView = view as SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        let skView = view as! SKView
+        skView.showsFPS = false
+        skView.showsNodeCount = false
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .ResizeFill
         skView.presentScene(scene)
@@ -62,10 +62,15 @@ class GameViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowPauseScene" {
-            let pauseVC = segue.destinationViewController as PauseMenuViewController
+            let pauseVC = segue.destinationViewController as! PauseMenuViewController
+            pauseVC.game = self.game
+            pauseVC.navigationController?.navigationBarHidden = true
+        }
+            
+        else if segue.identifier == "ShowGameFinished" {
+            let pauseVC = segue.destinationViewController as! GameFinishedViewController
             pauseVC.game = self.game
             pauseVC.navigationController?.navigationBarHidden = true
         }
     }
-    
 }

@@ -48,7 +48,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.currentPlayerLabel.fontName = "Space Comics"
         self.currentPlayerLabel.fontSize = 12
         self.addChild(self.currentPlayerLabel)
-
+        
+        let boxMargin : CGFloat = 400
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(-boxMargin, -boxMargin, self.frame.width+boxMargin*2, self.frame.height+boxMargin*2))
+        
         
         self.addPlanets()
         self.newRound()
@@ -88,9 +91,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.planets = []
         
 //        Add planets
+        let planetNames = ["RedPlanet", "GreenPlanet", "BluePlanet"]
         let positions : [(CGFloat, CGFloat)] = [(100,200), (400,100), (500,300)]
-        for pos in positions {
-            let planet = Planet(texture: SKTexture(imageNamed: "RedPlanet"), radius: 50, fieldStrength: 2)
+        for (i, pos) in enumerate(positions) {
+            let planet = Planet(texture: SKTexture(imageNamed: planetNames[i%planetNames.count]), radius: 50, fieldStrength: 2)
             planet.position = CGPointMake(pos.0, pos.1)
             self.planets.append(planet)
             self.addChild(planet)
@@ -98,8 +102,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.planets.last?.state = .Hole
     }
-
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
         self.addChild(line)
@@ -108,7 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             endPoint = touch.locationInNode(self)
             
@@ -121,7 +125,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         line.removeFromParent()
         line = SKShapeNode()
         
@@ -157,17 +161,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball!.removeFromParent()
                 
                 if self.game!.roundIsDone() {
-                    self.newRound()
+                    let fvc = ((UIApplication.sharedApplication().delegate as! AppDelegate).window!.rootViewController! as! UINavigationController).viewControllers.last!
+                    fvc.performSegueWithIdentifier("ShowGameFinished", sender: nil)
+                    //Kall på gamefinished screen
                 }
             }
         }
     }
     
+
+    
     
     func ballDidHitPlanet(contact: SKPhysicsContact) -> (Ball?, Planet?){
         if (contact.bodyA.categoryBitMask == PhysicsCategory.Ball &&
             contact.bodyB.categoryBitMask == PhysicsCategory.Planet){
-                
+
                 return (contact.bodyA.node as? Ball, contact.bodyB.node as? Planet)
         } else if (contact.bodyB.categoryBitMask == PhysicsCategory.Ball &&
                    contact.bodyA.categoryBitMask == PhysicsCategory.Planet){
@@ -182,4 +190,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+
 }

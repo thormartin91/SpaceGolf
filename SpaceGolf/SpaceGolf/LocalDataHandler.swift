@@ -23,7 +23,7 @@ class LocalDataHandler {
         dict[key] = object
         
 //        Construct path to the file in documents directory
-        let documentsDir : String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
+        let documentsDir : String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
         var plistPath : String = documentsDir + "/" + file + ".plist"
         
 //        Write to file
@@ -33,7 +33,7 @@ class LocalDataHandler {
 //    Get the dict from file
     class func getDataFromFile(file: String) -> [NSObject: AnyObject]{
 //        Construct path to the file in documents directory
-        let documentsDir : String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
+        let documentsDir : String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
         var plistPath : String = documentsDir + "/" + file + ".plist"
         
 //        If there is a file at the path, return the data
