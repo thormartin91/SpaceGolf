@@ -23,6 +23,9 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SpaceGolf" translatesAutoresizingMaskIntoConstraints="NO" id="QyT-jQ-oBt">
+                    <rect key="frame" x="-5" y="0.0" width="485" height="480"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -32,10 +35,17 @@
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstAttribute="trailing" secondItem="QyT-jQ-oBt" secondAttribute="trailing" id="gNr-Be-iak"/>
+                <constraint firstItem="QyT-jQ-oBt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qsP-Ut-4Y4"/>
+                <constraint firstItem="QyT-jQ-oBt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wRV-Ga-HGy"/>
+                <constraint firstAttribute="bottom" secondItem="QyT-jQ-oBt" secondAttribute="bottom" id="ylg-NP-C3i"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="SpaceGolf" width="667" height="375"/>
+    </resources>
 </document>
