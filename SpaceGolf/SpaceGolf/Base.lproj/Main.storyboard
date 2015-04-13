@@ -236,6 +236,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="btn_play" destination="uk2-bR-grA" id="Sno-89-WC4"/>
+                        <outlet property="highScoreButton" destination="MKJ-OI-PdM" id="lDO-iP-XeA"/>
+                        <outlet property="settingsButton" destination="VjR-GR-Wcn" id="gJX-rt-MCY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQv-pJ-uP9" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,7 +12,12 @@ import SpriteKit
 class GameMenuViewController: UIViewController {
     
     @IBOutlet weak var btn_play: UIButton!
+    @IBOutlet weak var highScoreButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     
+    var buttons : [UIButton] {
+        return [self.btn_play, self.highScoreButton, self.settingsButton]
+    }
     
     var gameSounds = GameSounds()
     
