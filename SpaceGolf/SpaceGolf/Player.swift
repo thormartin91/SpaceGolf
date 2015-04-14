@@ -12,7 +12,11 @@ import SpriteKit
 
 class Player: GKLocalPlayer {
     let id: Int
-    var score: Int
+    var score: Int {
+        didSet {
+            println("bhbjbhjv")
+        }
+    }
     private var hits: Int
     var ball: Ball
     var name: String

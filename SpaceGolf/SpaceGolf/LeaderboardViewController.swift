@@ -36,8 +36,7 @@ class LeaderboardViewController: UIViewController {
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image)
         
-        scoreView.backgroundColor = UIColor.clearColor();
-        highscoreView.backgroundColor = UIColor.clearColor();
+        self.highscoreView.backgroundColor = UIColor.clearColor();
 
         
         if let highScores = LocalDataHandler.getObjectFromFile(LocalDataFile.PlayerData, key: LocalDataKey.HighScore) as? [String: Int] {

@@ -35,6 +35,7 @@ class LeaderboardModel {
             }
             
         }
+
         leaderList.sort({$0.score > $1.score})
     }
     

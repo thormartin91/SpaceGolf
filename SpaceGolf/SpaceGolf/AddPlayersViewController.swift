@@ -49,6 +49,10 @@ class AddPlayersViewController: UIViewController {
         }
     }
     
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func back(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }

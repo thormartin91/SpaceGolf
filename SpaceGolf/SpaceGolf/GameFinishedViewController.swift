@@ -46,7 +46,7 @@ class GameFinishedViewController: UIViewController {
         
         for player in self.game!.players {
             if let oldScore = newScoreDict[player.name] {
-                if oldScore > player.score {
+                if oldScore < player.score {
                     continue
                 }
             }
