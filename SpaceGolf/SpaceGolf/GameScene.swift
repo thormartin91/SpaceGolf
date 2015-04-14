@@ -85,6 +85,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func nextPlayer() {
+        self.currentPlayer?.changeScore(1)
+        
         self.currentPlayer = self.game?.nextPlayer()
         
         if self.currentPlayer?.ball.parent == nil {
@@ -101,15 +103,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
 //        Add planets
         let planetNames = ["RedPlanet", "GreenPlanet", "BluePlanet"]
-        let positions : [(CGFloat, CGFloat)] = [(100,200), (400,100), (500,300)]
+        let positions : [(CGFloat, CGFloat)] = [(0.15,0.5), (0.55,0.25), (0.85,0.6)]
         for (i, pos) in enumerate(positions) {
-            let planet = Planet(texture: SKTexture(imageNamed: planetNames[i%planetNames.count]), radius: 50, fieldStrength: 2)
-            planet.position = CGPointMake(pos.0, pos.1)
+            let planet = Planet(texture: SKTexture(imageNamed: planetNames[i%planetNames.count]), radius: self.frame.height*0.15, fieldStrength: 2)
+            planet.position = CGPointMake(pos.0 * self.frame.width, pos.1 * self.frame.height)
             self.planets.append(planet)
             self.addChild(planet)
         }
         
-        self.planets[Int(arc4random())%self.planets.count].state = .Hole
+        self.planets[(Int(rand())%self.planets.count)].state = .Hole
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

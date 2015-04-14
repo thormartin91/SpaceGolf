@@ -21,8 +21,11 @@ class AddPlayersViewController: UIViewController {
         // Do additional setup after loading the view
         playerTextField.placeholder = "Enter name..."
         
-        let bgnd = UIImage(named: "bgnd")
-        self.view.backgroundColor = UIColor(patternImage: bgnd!)
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "bgnd")?.drawInRect(self.view.bounds)
+        var image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,6 +50,10 @@ class AddPlayersViewController: UIViewController {
         } else {
             return true // start game
         }
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
     }
     
     @IBAction func back(sender: AnyObject) {
