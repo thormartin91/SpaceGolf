@@ -109,7 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(planet)
         }
         
-        self.planets[Int(arc4random())%self.planets.count].state = .Hole
+//        self.planets[Int(arc4random())%self.planets.count].state = .Hole
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
