@@ -8,6 +8,13 @@
 
 import Foundation
 
+struct LocalDataFile {
+    static let PlayerData = "playerData"
+}
+
+struct LocalDataKey {
+    static let HighScore = "highScore"
+}
 
 class LocalDataHandler {
     

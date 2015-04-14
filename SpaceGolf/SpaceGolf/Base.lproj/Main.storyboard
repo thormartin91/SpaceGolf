@@ -15,6 +15,7 @@
             <string>SpaceComics</string>
             <string>SpaceComics</string>
             <string>SpaceComics</string>
+            <string>SpaceComics</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -68,14 +69,14 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpj-Bl-aFl">
                                 <rect key="frame" x="16" y="63" width="635" height="178"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="SpaceComics" family="Space Comics" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOj-7D-gLA">
                                 <rect key="frame" x="254" y="308" width="158" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" backgroundImage="btn_mainmenu.png">
+                                <state key="normal" backgroundImage="btn_mainmenu">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -84,7 +85,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTb-aC-E7u">
                                 <rect key="frame" x="0.0" y="220" width="667" height="89"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="SpaceComics" family="Space Comics" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -428,6 +429,7 @@
                                     <constraint firstAttribute="width" constant="46" id="Uzg-tk-y10"/>
                                     <constraint firstAttribute="height" constant="30" id="dwY-GR-Uwm"/>
                                 </constraints>
+
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="btn_back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -488,8 +490,7 @@
                     <connections>
                         <outlet property="HeaderLabel" destination="LZu-Xh-5uM" id="vDc-ps-9aO"/>
                         <outlet property="headerLabel" destination="LZu-Xh-5uM" id="AKc-Ik-SBU"/>
-                        <outlet property="highscoreView" destination="U9E-Va-DI1" id="RK6-Jw-gzZ"/>
-                        <outlet property="scoreView" destination="wFU-VR-wie" id="lNz-x6-4DZ"/>
+                        <outlet property="highscoreView" destination="wFU-VR-wie" id="X2l-r7-bsV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQC-Ux-A3N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -641,7 +642,6 @@
         <image name="btn_back" width="63" height="47"/>
         <image name="btn_highscore" width="271" height="47"/>
         <image name="btn_mainmenu" width="271" height="47"/>
-        <image name="btn_mainmenu.png" width="41" height="47"/>
         <image name="btn_pause" width="41" height="47"/>
         <image name="btn_play" width="271" height="47"/>
         <image name="btn_resume" width="271" height="47"/>
