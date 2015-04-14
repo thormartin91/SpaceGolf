@@ -36,7 +36,7 @@ class LeaderboardViewController: UIViewController {
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image)
         
-        scoreView.backgroundColor = UIColor.clearColor();
+//        scoreView.backgroundColor = UIColor.clearColor();
         highscoreView.backgroundColor = UIColor.clearColor();
 
         
