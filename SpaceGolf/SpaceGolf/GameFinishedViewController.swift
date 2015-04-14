@@ -35,6 +35,14 @@ class GameFinishedViewController: UIViewController {
         winnerScoreLabel.text = "SHOTS: \(winningPlayer.score)"
         winnerScoreLabel.textColor = UIColor.greenColor()
         winnerScoreLabel.font = UIFont(name: "Space Comics", size: 30)
+        
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "bgnd")?.drawInRect(self.view.bounds)
+        var image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
+        
     }
     
     func addResultsToHighscore() {
