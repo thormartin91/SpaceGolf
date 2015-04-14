@@ -22,9 +22,12 @@ class GameSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do additional setup after loading the view
-        let bgnd = UIImage(named: "bgnd")
-        self.view.backgroundColor = UIColor(patternImage: bgnd!)
-
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "bgnd")?.drawInRect(self.view.bounds)
+        var image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
         
         if(gameSounds?.isBackgroundMusicOn == false){
             backgroundMusicSwitch.on = false

@@ -24,9 +24,17 @@ class GameMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do additional setup after loading the view
-        let spaceGolf = UIImage(named: "SpaceGolf.png")
-        gameSounds.playBackgroundMusic()
-        self.view.backgroundColor = UIColor(patternImage: spaceGolf!)
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "SpaceGolf.png")?.drawInRect(self.view.bounds)
+        var image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
+
+        
+        
+//        let spaceGolf = UIImage(named: "SpaceGolf.png")
+//        gameSounds.playBackgroundMusic()
         
     }
     
