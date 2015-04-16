@@ -34,7 +34,7 @@ class GameMenuViewController: UIViewController {
         
         
 //        let spaceGolf = UIImage(named: "SpaceGolf.png")
-//        gameSounds.playBackgroundMusic()
+        gameSounds.playBackgroundMusic()
         
     }
     
