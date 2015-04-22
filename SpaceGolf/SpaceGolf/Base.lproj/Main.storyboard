@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QuY-tJ-lLk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QuY-tJ-lLk">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -88,7 +88,7 @@
                                     <action selector="goToMainMenu:" destination="Wv4-fr-5wf" eventType="touchUpInside" id="Ojp-pe-S2v"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTb-aC-E7u">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTb-aC-E7u">
                                 <rect key="frame" x="0.0" y="220" width="667" height="89"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="667" id="XdM-Xv-wT5"/>
@@ -98,7 +98,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpj-Bl-aFl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WINNING PLAYER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpj-Bl-aFl">
                                 <rect key="frame" x="16" y="59" width="635" height="178"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="635" id="Kqa-ir-YPk"/>
@@ -108,7 +108,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.98431378602981567" green="0.066666670143604279" blue="0.023529414087533951" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="BTb-aC-E7u" firstAttribute="centerX" secondItem="bOj-7D-gLA" secondAttribute="centerX" constant="0.5" id="1Nf-IR-RnD"/>
                             <constraint firstItem="fnL-ni-YZD" firstAttribute="top" secondItem="bOj-7D-gLA" secondAttribute="bottom" constant="37" id="DXh-zM-06B"/>
@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Pu-kC-bBZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4815.5" y="436.5"/>
+            <point key="canvasLocation" x="4661.5" y="442.5"/>
         </scene>
         <!--Pause Menu View Controller-->
         <scene sceneID="JhJ-Ga-fwh">
@@ -200,7 +200,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="F3a-Wb-qXk" firstAttribute="top" secondItem="Wdm-a6-hzL" secondAttribute="bottom" constant="17" id="3Ms-Bj-7Y5"/>
                             <constraint firstItem="Olg-uZ-ucf" firstAttribute="top" secondItem="Inc-93-rbx" secondAttribute="bottom" constant="13" id="ESf-2o-uoq"/>
@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OsI-7t-ty8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3843.5" y="1102.5"/>
+            <point key="canvasLocation" x="3843.5" y="1116.5"/>
         </scene>
         <!--Game Menu View Controller-->
         <scene sceneID="h5C-LU-y0J">
@@ -281,7 +281,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="uk2-bR-grA" firstAttribute="trailing" secondItem="ZDK-IE-C7g" secondAttribute="trailingMargin" id="253-k0-HaO"/>
                             <constraint firstItem="uk2-bR-grA" firstAttribute="leading" secondItem="VjR-GR-Wcn" secondAttribute="trailing" constant="34" id="B64-si-ka1"/>
@@ -453,7 +453,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGV-DA-Pmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1771" y="1328"/>
+            <point key="canvasLocation" x="1783" y="1136"/>
         </scene>
         <!--Leaderboard View Controller-->
         <scene sceneID="897-Fz-jpQ">
@@ -553,7 +553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQC-Ux-A3N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2767" y="1328"/>
+            <point key="canvasLocation" x="2729" y="1136"/>
         </scene>
         <!--Add players-->
         <scene sceneID="e0m-N6-iVT">
@@ -648,7 +648,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xfE-u7-59X" firstAttribute="top" secondItem="qa6-0C-GMc" secondAttribute="bottom" constant="15" id="81m-If-djF"/>
                             <constraint firstAttribute="centerX" secondItem="XkN-zT-xMZ" secondAttribute="centerX" id="LUQ-c0-GSc"/>
@@ -692,7 +692,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zel-QT-pTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="443"/>
+            <point key="canvasLocation" x="1342" y="443"/>
         </scene>
     </scenes>
     <resources>
