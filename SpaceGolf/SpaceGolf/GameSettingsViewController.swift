@@ -13,12 +13,6 @@ class GameSettingsViewController: UIViewController {
     @IBOutlet weak var backgroundMusicSwitch: UISwitch!
     @IBOutlet weak var soundEffectsSwitch: UISwitch!
     
-    var gameSounds : GameSounds? {
-        didSet {
-//            println("Yay")
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do additional setup after loading the view
@@ -29,11 +23,11 @@ class GameSettingsViewController: UIViewController {
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image)
         
-        if(gameSounds?.isBackgroundMusicOn == false){
+        if(GameSounds.sharedInstance.isBackgroundMusicOn == false){
             backgroundMusicSwitch.on = false
         }
         
-        if(gameSounds?.isMusicEffectsOn == false){
+        if(GameSounds.sharedInstance.isMusicEffectsOn == false){
             soundEffectsSwitch.on = false
         }
 
@@ -55,9 +49,9 @@ class GameSettingsViewController: UIViewController {
         var toggleSwitch = sender as! UISwitch
     
         if(toggleSwitch.on){
-            gameSounds!.unMuteSoundEffects()
+            GameSounds.sharedInstance.unMuteSoundEffects()
         }else{
-            gameSounds!.muteSoundEffects()
+            GameSounds.sharedInstance.muteSoundEffects()
         }
 
 
@@ -68,9 +62,9 @@ class GameSettingsViewController: UIViewController {
         var musicSwitch = sender as! UISwitch
         
         if(musicSwitch.on){
-            gameSounds!.resumeBackgroundMusic()
+            GameSounds.sharedInstance.resumeBackgroundMusic()
         }else{
-            gameSounds!.pauseBackgroundMusic()
+            GameSounds.sharedInstance.pauseBackgroundMusic()
         }
         
     }

@@ -19,8 +19,6 @@ class GameMenuViewController: UIViewController {
         return [self.btn_play, self.highScoreButton, self.settingsButton]
     }
     
-    var gameSounds = GameSounds()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do additional setup after loading the view
@@ -34,7 +32,7 @@ class GameMenuViewController: UIViewController {
         
         
 //        let spaceGolf = UIImage(named: "SpaceGolf.png")
-        gameSounds.playBackgroundMusic()
+        GameSounds.sharedInstance.playBackgroundMusic()
         
     }
     
@@ -46,11 +44,9 @@ class GameMenuViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowSettings" {
             let settingsVC = segue.destinationViewController as! GameSettingsViewController
-            settingsVC.gameSounds = gameSounds
 //            settingsVC.navigationController?.navigationBarHidden = true
         }else if segue.identifier == "ShowAddPlayers" {
             let addPlayersVC = segue.destinationViewController as! AddPlayersViewController
-            addPlayersVC.gameSounds = gameSounds
         }
     }
     

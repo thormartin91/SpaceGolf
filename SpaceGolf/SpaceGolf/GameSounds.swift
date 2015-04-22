@@ -9,6 +9,8 @@
 import Foundation
 import AVFoundation
 
+private let _sharedInstance = GameSounds()
+
 class GameSounds {
     
     var audioPlayer = AVAudioPlayer()
@@ -18,9 +20,11 @@ class GameSounds {
     init(){
         isMusicEffectsOn = true
         isBackgroundMusicOn = true
-        
     }
     
+    class var sharedInstance : GameSounds {
+        return _sharedInstance;
+    }
     
     func playSoundWithName(name: String, ofType type: String) {
         let soundURL = NSURL(fileURLWithPath:(NSBundle.mainBundle().pathForResource(name, ofType: type))!)
